@@ -1,4 +1,4 @@
 {
- "plugin": false,
- "dependencies": []
+    "plugin": false,
+    "dependencies": ["SettingsManager"]
 }
