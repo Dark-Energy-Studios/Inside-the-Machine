@@ -8,10 +8,25 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Settings",
+"language": "GDScript",
+"path": "res://addons/SettingsManager/Settings.gd"
+} ]
+_global_script_class_icons={
+"Settings": ""
+}
+
 [application]
 
 config/name="Inside the Machine"
+run/main_scene="res://test.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+settings="*res://Scripts/InitSettings.gd"
 
 [physics]
 
@@ -19,5 +34,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES3"
 environment/default_environment="res://default_env.tres"
