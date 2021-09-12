@@ -35,9 +35,8 @@ speed = 50.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
-position = Vector2( 381.325, 196.326 )
-current = true
-zoom = Vector2( 4, 4 )
+anchor_mode = 0
+zoom = Vector2( 2.5, 2.5 )
 
 [node name="Border1" type="StaticBody2D" parent="."]
 position = Vector2( 399.299, 1.23527 )
