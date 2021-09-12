@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Media/TileMap/room.tres" type="TileSet" id=1]
-[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
 
 [node name="MissionControl" type="Node2D"]
 
@@ -28,6 +27,3 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 917512, 43, 0, 983057, 5, 0 )
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 10.6634, 25.2554 )

@@ -34,6 +34,7 @@ scale = Vector2( 0.8, 0.8 )
 speed = 50.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2( 381.325, 196.326 )
 current = true
 zoom = Vector2( 4, 4 )
