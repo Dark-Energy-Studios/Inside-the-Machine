@@ -1,12 +1,26 @@
 extends KinematicBody2D
 
+export var INITIAL_LIFES = 3
+
 signal dead()
-export var health: float = 100.0
+export var lifes: int = INITIAL_LIFES
 
 var MAX_SPEED = 100
 var ACCELERATION = 250
 var motion = Vector2()
 var flipped: bool = false
+
+func looseLife():
+	lifes -= 1
+	if lifes == 0:
+		die()
+	return getRemainaingLifes()
+	
+func getRemainaingLifes():
+	return lifes
+
+func resetLifes():
+	lifes = INITIAL_LIFES
 
 func _physics_process(delta):
 	move(delta)
