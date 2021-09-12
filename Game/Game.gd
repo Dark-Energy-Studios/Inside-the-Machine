@@ -16,7 +16,14 @@ func _ready():
 	fake_game.scale = Vector2(0.035, 0.03)
 
 func _process(_delta):
+	fake_game.ball.visible = $PongGame.ball.visible
 	fake_game.ball.position = $PongGame.ball.position
 	fake_game.player_paddle.position = $PongGame.player_paddle.position
 	fake_game.ai_paddle.position = $PongGame.ai_paddle.position
 
+func _on_PongGame_ai_score():
+	$PongGame.reset_ball()
+
+
+func _on_PongGame_player_score():
+	$PongGame.reset_ball()
