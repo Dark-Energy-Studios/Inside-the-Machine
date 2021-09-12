@@ -22,6 +22,7 @@ func _process(_delta):
 	fake_game.ai_paddle.position = $PongGame.ai_paddle.position
 
 func _on_PongGame_ai_score():
+	$LifeScreen.lifes = $Player.looseLife()
 	$PongGame.reset_ball()
 
 
