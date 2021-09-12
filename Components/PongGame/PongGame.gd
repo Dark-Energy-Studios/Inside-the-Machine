@@ -9,10 +9,14 @@ export var ball_speed: float = 50
 export var classicly_playing: bool = false
 export var ball_warninglight: bool = false
 export var ball_moving: bool = false
+
 onready var ball: PongBall = get_node("PongBall")
+onready var player_paddle: PongPaddle = get_node("PlayerPaddle")
+onready var rotated: bool = int(rotation_degrees) == -90
 
 func _ready():
 	sync_ball_settings()
+
 
 func _process(_delta):
 	sync_ball_settings()
@@ -36,17 +40,28 @@ func sync_ball_settings():
 	$PongBall.speed = ball_speed
 
 func move_player_paddle_up():
-	$PlayerPaddle.move(Vector2(0, -1), player_speed)
+	var dir = check_direction(Vector2(0, -1))
+	$PlayerPaddle.move(dir, player_speed)
 
 func move_player_paddle_down():
-	$PlayerPaddle.move(Vector2(0, 1), player_speed)
+	var dir = check_direction(Vector2(0, 1))
+	$PlayerPaddle.move(dir, player_speed)
 
 func move_ai_paddle_up():
-	$AIPaddle.move(Vector2(0, -1), player_speed)
+	var dir = check_direction(Vector2(0, -1))
+	$AIPaddle.move(dir, player_speed)
 
 func move_ai_paddle_down():
-	$AIPaddle.move(Vector2(0, 1), player_speed)
+	var dir = check_direction(Vector2(0, 1))
+	$AIPaddle.move(dir, player_speed)
 
+func check_direction(dir: Vector2) -> Vector2:
+	if rotated:
+		var tmp = dir.y
+		dir.y = dir.x
+		dir.x = tmp
+
+	return dir
 
 func _on_AIGate_body_entered(body):
 	if body is PongBall:

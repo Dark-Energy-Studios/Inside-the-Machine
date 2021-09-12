@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Monitor.png-a9d1c5ba6e2d66272f8dff19609f8371.stex"
+path="res://.import/Monitor.png-315c56c0c77f6aaececc00d9d50dfad2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/Visual/TestAssets/Monitor.png"
-dest_files=[ "res://.import/Monitor.png-a9d1c5ba6e2d66272f8dff19609f8371.stex" ]
+source_file="res://Media/Visual/Room/Monitor.png"
+dest_files=[ "res://.import/Monitor.png-315c56c0c77f6aaececc00d9d50dfad2.stex" ]
 
 [params]
 

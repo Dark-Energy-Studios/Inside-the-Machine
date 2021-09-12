@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Media/Visual/Pong/Ball.png" type="Texture" id=1]
 [ext_resource path="res://Entities/PongBall/PongBall.gd" type="Script" id=2]
@@ -6,6 +6,23 @@
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.2659
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 0.439453, 0, 1, 0.927734, 1, 0, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 69.77
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 3.0
+scale_random = 1.0
+color_ramp = SubResource( 3 )
 
 [node name="PongBall" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -26,3 +43,8 @@ energy = 5.0
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 19.9
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 1000
+process_material = SubResource( 4 )

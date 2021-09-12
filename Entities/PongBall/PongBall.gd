@@ -6,8 +6,13 @@ export var warnlight: bool = true
 export var move: bool = false
 var velocity = Vector2.ZERO
 
+onready var collision_shape: CollisionShape2D = get_node("CollisionShape2D")
+onready var particles: Particles2D = get_node("Particles2D")
+onready var sprite: Sprite = get_node("Sprite")
+
 func _ready():
 	$Light2D.enabled = warnlight
+	$Particles2D.emitting = false
 	
 	randomize()
 	velocity.x = [-1,1][randi() % 2]
