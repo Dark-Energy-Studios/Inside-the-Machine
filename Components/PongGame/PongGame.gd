@@ -17,6 +17,19 @@ func _ready():
 func _process(_delta):
 	sync_ball_settings()
 
+func _physics_process(_delta):
+	if classicly_playing:
+		if Input.is_action_pressed("ui_test_up"):
+			move_player_paddle_up()
+		elif Input.is_action_pressed("ui_test_down"):
+			move_player_paddle_down()
+
+		if Input.is_action_pressed("ui_up"):
+			move_ai_paddle_up()
+		elif Input.is_action_pressed("ui_down"):
+			move_ai_paddle_down()
+
+
 func sync_ball_settings():
 	$PongBall.warnlight = ball_warninglight
 	$PongBall.move = ball_moving
@@ -27,6 +40,13 @@ func move_player_paddle_up():
 
 func move_player_paddle_down():
 	$PlayerPaddle.move(Vector2(0, 1), player_speed)
+
+func move_ai_paddle_up():
+	$AIPaddle.move(Vector2(0, -1), player_speed)
+
+func move_ai_paddle_down():
+	$AIPaddle.move(Vector2(0, 1), player_speed)
+
 
 func _on_AIGate_body_entered(body):
 	if body is PongBall:
@@ -45,23 +65,3 @@ func move_ball():
 
 func stop_ball():
 	$PongBall.move = false
-
-## CODE DOWN HERE IS TEMPORARY
-
-func _physics_process(_delta):
-	if classicly_playing:
-		if Input.is_action_pressed("ui_test_up"):
-			move_player_paddle_up()
-		elif Input.is_action_pressed("ui_test_down"):
-			move_player_paddle_down()
-
-		if Input.is_action_pressed("ui_up"):
-			move_ai_paddle_up()
-		elif Input.is_action_pressed("ui_down"):
-			move_ai_paddle_down()
-
-func move_ai_paddle_up():
-	$AIPaddle.move(Vector2(0, -1), player_speed)
-
-func move_ai_paddle_down():
-	$AIPaddle.move(Vector2(0, 1), player_speed)
