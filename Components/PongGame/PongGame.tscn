@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Entities/PongPaddle/PongPaddle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Media/Visual/Colors/Black.png" type="Texture" id=2]
+[ext_resource path="res://Components/PongGame/PongGame.gd" type="Script" id=3]
+[ext_resource path="res://Entities/PongBall/PongBall.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="PongGame" type="Node2D"]
+script = ExtResource( 3 )
+classicly_playing = true
+ball_warninglight = true
+ball_moving = true
+
+[node name="Field" type="Sprite" parent="."]
+position = Vector2( 400, 200 )
+scale = Vector2( 50, 25 )
+texture = ExtResource( 2 )
+
+[node name="PlayerPaddle" parent="." instance=ExtResource( 1 )]
+position = Vector2( 75, 155.907 )
+
+[node name="AIPaddle" parent="." instance=ExtResource( 1 )]
+position = Vector2( 725, 150.111 )
+
+[node name="PongBall" parent="." instance=ExtResource( 4 )]
+position = Vector2( 381.461, 196.317 )
+scale = Vector2( 0.8, 0.8 )
+speed = 50.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 381.325, 196.326 )
+current = true
+zoom = Vector2( 4, 4 )
+
+[node name="Border1" type="StaticBody2D" parent="."]
+position = Vector2( 399.299, 1.23527 )
+scale = Vector2( 39.861, 0.173 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border1"]
+shape = SubResource( 3 )
+
+[node name="Border2" type="StaticBody2D" parent="."]
+position = Vector2( 400.19, 399.059 )
+scale = Vector2( 39.861, 0.173 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border2"]
+shape = SubResource( 3 )
+
+[node name="AIGate" type="Area2D" parent="."]
+position = Vector2( 762.609, 200.452 )
+scale = Vector2( 1, 20.003 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AIGate"]
+shape = SubResource( 2 )
+
+[node name="PlayerGate" type="Area2D" parent="."]
+position = Vector2( 35, 200.452 )
+scale = Vector2( 1, 20.003 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerGate"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="AIGate" to="." method="_on_AIGate_body_entered"]
+[connection signal="body_entered" from="PlayerGate" to="." method="_on_PlayerGate_body_entered"]

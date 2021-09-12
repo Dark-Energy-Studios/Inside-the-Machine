@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Media/Visual/Colors/White.png" type="Texture" id=1]
+[ext_resource path="res://Entities/PongPaddle/PongPaddle.gd" type="Script" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -8, 8, 8, 8.00098, 8, -8.00098, -8.00521, -7.99902 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.00506, 8.00308 )
+
+[node name="PongPaddle" type="KinematicBody2D"]
+scale = Vector2( 1.5, 8 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
