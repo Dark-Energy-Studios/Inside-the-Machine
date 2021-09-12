@@ -17,6 +17,9 @@
 -   `addons/`: <br>
     Managed by the `ppm` package manager
 
+-   `Components/`: <br>
+    The different Components for the main Game
+
 ## Install dependencies
 
 ```
