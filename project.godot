@@ -39,7 +39,6 @@ _global_script_class_icons={
 [application]
 
 config/name="Inside the Machine"
-run/main_scene="res://test.tscn"
 config/icon="res://icon.png"
 
 [autoload]
