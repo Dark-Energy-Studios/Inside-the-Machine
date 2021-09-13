@@ -33,4 +33,5 @@ __meta__ = {
 
 [node name="MainMenu" parent="Camera2D/UI" instance=ExtResource( 4 )]
 
-[node name="Timer" type="Timer" parent="."]
+[connection signal="ai_score" from="PongGame" to="." method="_on_score"]
+[connection signal="player_score" from="PongGame" to="." method="_on_score"]
