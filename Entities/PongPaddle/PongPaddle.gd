@@ -1,5 +1,7 @@
 extends KinematicBody2D
 class_name PongPaddle
 
-func move(dir: Vector2, speed: float) -> void:
+export var speed: float
+
+func move(dir: Vector2) -> void:
 	move_and_slide(dir * speed)

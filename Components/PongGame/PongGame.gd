@@ -16,6 +16,9 @@ onready var rotated: bool = int(rotation_degrees) == -90
 
 func _ready():
 	sync_ball_settings()
+	
+	$PlayerPaddle.speed = player_speed
+	$AIPaddle.speed = player_speed
 
 
 func _process(_delta):
@@ -41,19 +44,19 @@ func sync_ball_settings():
 
 func move_player_paddle_up():
 	var dir = check_direction(Vector2(0, -1))
-	$PlayerPaddle.move(dir, player_speed)
+	$PlayerPaddle.move(dir)
 
 func move_player_paddle_down():
 	var dir = check_direction(Vector2(0, 1))
-	$PlayerPaddle.move(dir, player_speed)
+	$PlayerPaddle.move(dir)
 
 func move_ai_paddle_up():
 	var dir = check_direction(Vector2(0, -1))
-	$AIPaddle.move(dir, player_speed)
+	$AIPaddle.move(dir)
 
 func move_ai_paddle_down():
 	var dir = check_direction(Vector2(0, 1))
-	$AIPaddle.move(dir, player_speed)
+	$AIPaddle.move(dir)
 
 func check_direction(dir: Vector2) -> Vector2:
 	if rotated:
