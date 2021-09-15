@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Media/Visual/Player/Player_AnimatedSprite.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Entities/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Media/Visual/Light/light.png" type="Texture" id=3]
+[ext_resource path="res://Components/InteractionComponent/InteractionComponent.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.21349, 7.40429 )
@@ -38,15 +39,18 @@ tracks/1/keys = {
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = ExtResource( 1 )
-animation = "idle"
-frame = 4
-playing = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.31498, 0.629963 )
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "idle"
+frame = 3
+playing = true
+
+[node name="InteractionComponent" parent="AnimatedSprite" instance=ExtResource( 4 )]
+interaction_parent = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/die = SubResource( 2 )
