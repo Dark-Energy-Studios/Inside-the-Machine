@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Media/Visual/Room/right.png" type="Texture" id=1]
 [ext_resource path="res://Components/Lever/Lever.gd" type="Script" id=2]
@@ -28,9 +28,6 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8.73386, 8.76513 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 8.04247, 5.87502 )
-
 [node name="Lever" type="StaticBody2D"]
 collision_layer = 3
 collision_mask = 0
@@ -41,9 +38,3 @@ frames = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 5 )
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 1.90735e-06, 2.15544 )
-shape = SubResource( 6 )
