@@ -28,3 +28,11 @@ func _on_PongGame_ai_score():
 
 func _on_PongGame_player_score():
 	$PongGame.reset_ball()
+
+
+func _on_LeftLever_on_lever_pressed():
+	$PongGame.move_player_paddle_up()
+
+
+func _on_RightLever_on_lever_pressed():
+	$PongGame.move_player_paddle_down()
