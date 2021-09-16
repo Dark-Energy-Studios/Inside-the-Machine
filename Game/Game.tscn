@@ -24,6 +24,7 @@ ball_speed = 250.0
 
 [node name="LeftLever" parent="." instance=ExtResource( 7 )]
 position = Vector2( 33.0052, 28.0734 )
+scale = Vector2( -1, 1 )
 
 [node name="RightLever" parent="." instance=ExtResource( 7 )]
 position = Vector2( 289.861, 29.162 )
