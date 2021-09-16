@@ -1,16 +1,18 @@
 extends KinematicBody2D
 
 export var INITIAL_LIFES = 3
+export var INTIAL_ENERGY = 100
 
 signal dead()
 export var lifes: int = INITIAL_LIFES
+export var energy: int = INTIAL_ENERGY
 
 var MAX_SPEED = 100
 var ACCELERATION = 250
 var motion = Vector2()
 var flipped: bool = false
 
-func looseLife():
+func looseLife() -> int:
 	lifes -= 1
 	if lifes == 0:
 		die()
@@ -21,6 +23,18 @@ func getRemainaingLifes():
 
 func resetLifes():
 	lifes = INITIAL_LIFES
+
+func recharge_energy(amount:int):
+	energy = min(100, energy+abs(amount))
+
+func discharge_energy(amount:int):
+	energy = max(0,energy-abs(amount))
+
+func is_energy_empty() -> bool:
+	return energy <= 0
+
+func getRemainingEnergy() -> int:
+	return energy
 
 func _physics_process(delta):
 	move(delta)
