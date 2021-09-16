@@ -20,6 +20,8 @@ func _process(_delta):
 	fake_game.ball.position = $PongGame.ball.position
 	fake_game.player_paddle.position = $PongGame.player_paddle.position
 	fake_game.ai_paddle.position = $PongGame.ai_paddle.position
+	$CanvasLayer/Energy.text = "Energy: %d" % $Player.energy
+	$CanvasLayer/Life.text = "Life: %d" % $Player.lifes
 
 func _on_PongGame_ai_score():
 	$LifeScreen.lifes = $Player.looseLife()
@@ -31,8 +33,11 @@ func _on_PongGame_player_score():
 
 
 func _on_LeftLever_on_lever_pressed():
+	#if $Player.discharge_energy(100):
 	$PongGame.move_player_paddle_up()
+			
 
 
 func _on_RightLever_on_lever_pressed():
+	#if $Player.discharge_energy(100):
 	$PongGame.move_player_paddle_down()

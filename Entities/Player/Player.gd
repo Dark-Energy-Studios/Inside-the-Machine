@@ -28,8 +28,10 @@ func recharge_energy(amount:int):
 	energy = min(100, energy+abs(amount))
 
 func discharge_energy(amount:int):
+	if energy < amount:
+		return false
 	energy = max(0,energy-abs(amount))
-
+	return true
 func is_energy_empty() -> bool:
 	return energy <= 0
 

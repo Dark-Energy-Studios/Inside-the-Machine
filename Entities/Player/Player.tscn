@@ -50,7 +50,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 4
+frame = 3
 playing = true
 
 [node name="InteractionComponent" parent="AnimatedSprite" instance=ExtResource( 4 )]
