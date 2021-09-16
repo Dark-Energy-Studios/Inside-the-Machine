@@ -12,8 +12,8 @@ func _process(_delta):
 		if interaction_target.has_method("interaction_interact"):
 			interaction_target.interaction_interact(self)
 
+
 func _on_InteractionComponent_body_entered(body):
-	print(body)
 	var can_interact := false
 	
 	if body.has_method("interaction_can_interact"):
@@ -33,3 +33,7 @@ func _on_InteractionComponent_body_exited(body):
 			# Called when entity stepped outside of object range again
 			body.interaction_not_interacted(interaction_parent) 
 		emit_signal("on_interactable_changed", null)
+
+
+func _on_InteractionComponent_on_interactable_changed(new_interactable):
+	pass

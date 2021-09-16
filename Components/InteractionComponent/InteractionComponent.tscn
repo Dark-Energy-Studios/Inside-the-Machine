@@ -3,7 +3,7 @@
 [ext_resource path="res://Components/InteractionComponent/InteractionComponent.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 25.2336, 22.0007 )
+extents = Vector2( 10.5805, 10.3452 )
 
 [node name="InteractionComponent" type="Area2D"]
 collision_layer = 0
@@ -15,3 +15,4 @@ shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_InteractionComponent_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_InteractionComponent_body_exited"]
+[connection signal="on_interactable_changed" from="." to="." method="_on_InteractionComponent_on_interactable_changed"]
