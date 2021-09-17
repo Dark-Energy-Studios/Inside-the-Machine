@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name PongBall
 
+signal on_collision()
+
 export var speed: float = 600
 export var warnlight: bool = true
 export var move: bool = false
@@ -25,3 +27,4 @@ func _physics_process(delta):
 		var collision_object = move_and_collide(velocity * speed * delta)
 		if collision_object:
 			velocity = velocity.bounce(collision_object.normal)
+			emit_signal("on_collision")

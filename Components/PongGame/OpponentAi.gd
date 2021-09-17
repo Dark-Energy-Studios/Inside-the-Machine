@@ -22,3 +22,7 @@ func _physics_process(_delta):
 			move_player_paddle_down()
 		elif b_pos.y < ai_pos.y:
 			move_player_paddle_up()
+
+
+func _on_PongBall_on_collision():
+	$PongBall/CollisionAudio.play()
