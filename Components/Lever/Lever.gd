@@ -3,6 +3,7 @@ extends StaticBody2D
 export var energy_cost = 5
 
 var pressed:bool = false
+var current_interaction
 
 # player interacted with lever
 signal on_lever_pressed()
@@ -22,6 +23,8 @@ func interaction_interact(interaction):
 		$AnimatedSprite.play("default")
 		emit_signal("on_lever_changed")
 		emit_signal("on_lever_pressed")
+		$Timer.start(.5)
+		current_interaction = interaction
 
 func interaction_not_interacted(interaction):
 	if pressed:
@@ -29,3 +32,7 @@ func interaction_not_interacted(interaction):
 		pressed = false
 	emit_signal("on_lever_changed")
 	emit_signal("on_lever_reset")
+
+
+func _on_Timer_timeout():
+	interaction_not_interacted(current_interaction)
