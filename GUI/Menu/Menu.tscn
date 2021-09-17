@@ -5,6 +5,7 @@
 [ext_resource path="res://Media/Visual/Colors/White.png" type="Texture" id=3]
 [ext_resource path="res://GUI/Menu/MainMenu/MainMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GUI/Menu/EpilepsyWarning/EpilepsyWarning.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Media/Audio/intro.wav" type="AudioStream" id=6]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 2 )
@@ -39,3 +40,13 @@ __meta__ = {
 [connection signal="ai_score" from="PongGame" to="." method="_on_score"]
 [connection signal="player_score" from="PongGame" to="." method="_on_score"]
 [connection signal="approved" from="EpilepsyWarning" to="." method="_on_EpilepsyWarning_approved"]
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="Camera2D/UI/MainMenu"]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="Tween" type="Tween" parent="Camera2D/UI/MainMenu"]
+
+[connection signal="ai_score" from="PongGame" to="." method="_on_score"]
+[connection signal="player_score" from="PongGame" to="." method="_on_score"]
+[connection signal="tween_completed" from="Camera2D/UI/MainMenu/Tween" to="Camera2D/UI/MainMenu" method="_on_Tween_tween_completed"]
