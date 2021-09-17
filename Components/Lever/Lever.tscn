@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Media/Visual/Room/right.png" type="Texture" id=1]
 [ext_resource path="res://Components/Lever/Lever.gd" type="Script" id=2]
 [ext_resource path="res://Media/Visual/Room/left.png" type="Texture" id=3]
 [ext_resource path="res://Media/Visual/Room/middle.png" type="Texture" id=4]
 [ext_resource path="res://Media/Visual/KeyboardButtons/EKey.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Media/Audio/lever_valid_sound.wav" type="AudioStream" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -45,5 +46,9 @@ shape = SubResource( 5 )
 [node name="EKey" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0.496063, -33.5339 )
 scale = Vector2( 2, 2 )
+frame = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
