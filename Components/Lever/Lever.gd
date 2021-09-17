@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 export var energy_cost = 5
+export var flip_instruction_key: bool = false
 
 var pressed:bool = false
 var current_interaction
@@ -14,7 +15,12 @@ signal on_lever_reset()
 # lever status has changed
 signal on_lever_changed()
 
+func _ready():
+	if flip_instruction_key:
+		$EKey.scale.x *= -1
+
 func interaction_can_interact(interaction_parent: Node):
+	$EKey.visible = true
 	return true
 
 func interaction_interact(interaction):
@@ -32,7 +38,7 @@ func interaction_not_interacted(interaction):
 		pressed = false
 	emit_signal("on_lever_changed")
 	emit_signal("on_lever_reset")
-
+	$EKey.visible = false
 
 func _on_Timer_timeout():
 	interaction_not_interacted(current_interaction)
