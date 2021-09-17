@@ -17,8 +17,6 @@ func interaction_can_interact(interaction_parent: Node):
 	return true
 
 func interaction_interact(interaction):
-	if pressed:
-		return
 	if interaction.get_node(interaction.interaction_parent).discharge_energy(energy_cost):
 		pressed = true
 		$AnimatedSprite.play("default")
