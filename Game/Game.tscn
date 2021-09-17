@@ -11,6 +11,7 @@
 [ext_resource path="res://Media/Audio/game.wav" type="AudioStream" id=9]
 [ext_resource path="res://Media/Audio/default1.wav" type="AudioStream" id=10]
 [ext_resource path="res://Game/default.gd" type="Script" id=11]
+[ext_resource path="res://Components/EnergyScreen/EnergyScreen.tscn" type="PackedScene" id=12]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -15.9644, -7.94346, -15.9997, 7.97655, 15.9925, 7.98436, 16.0003, -7.96876 )
@@ -53,23 +54,9 @@ position = Vector2( -14.0148, -6.00744 )
 position = Vector2( 233.831, 232.107 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Energy" type="Label" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 14.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Life" type="Label" parent="CanvasLayer"]
-margin_left = 0.235962
-margin_top = 17.4617
-margin_right = 40.236
-margin_bottom = 31.4617
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="LifeScreen2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 185.693, 6.04899 )
+scale = Vector2( 0.75, 0.75 )
 
 [node name="Trainer" parent="." instance=ExtResource( 8 )]
 position = Vector2( 250.835, 282.69 )
@@ -95,6 +82,14 @@ shape = SubResource( 2 )
 [node name="Default_Music" type="AudioStreamPlayer" parent="default"]
 stream = ExtResource( 10 )
 bus = "Music"
+
+[node name="EnergyScreen" parent="." instance=ExtResource( 12 )]
+position = Vector2( 123.389, 6.77013 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="EnergyScreen2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 264.032, 231.906 )
+scale = Vector2( 0.75, 0.75 )
 
 [connection signal="ai_score" from="PongGame" to="." method="_on_PongGame_ai_score"]
 [connection signal="player_score" from="PongGame" to="." method="_on_PongGame_player_score"]

@@ -2,16 +2,12 @@
 
 [ext_resource path="res://Media/Fonts/Magero.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://GUI/Menu/MainMenu/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Media/Fonts/default.tres" type="DynamicFont" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-outline_size = 1
-outline_color = Color( 0.0509804, 0.352941, 0, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
 outline_size = 1
 outline_color = Color( 0.352941, 0.0156863, 0, 1 )
 font_data = ExtResource( 1 )
@@ -45,7 +41,7 @@ margin_left = 3.88908
 margin_top = 115.612
 margin_right = 65.8891
 margin_bottom = 135.612
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Start"
 flat = true
 __meta__ = {
@@ -57,7 +53,7 @@ margin_left = 0.353554
 margin_top = 139.3
 margin_right = 62.3536
 margin_bottom = 159.3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Exit"
 flat = true
 __meta__ = {

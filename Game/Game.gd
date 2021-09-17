@@ -29,14 +29,19 @@ func _process(_delta):
 	fake_game.ball.position = $PongGame.ball.position
 	fake_game.player_paddle.position = $PongGame.player_paddle.position
 	fake_game.ai_paddle.position = $PongGame.ai_paddle.position
-	$CanvasLayer/Energy.text = "Energy: %d" % $Player.energy
 
 	$PongGame.ball_moving = playing
 	$Player.visible = player_existing
 	$Player/Camera2D.current = player_existing
+	$EnergyScreen.update_energy($Player.getRemainingEnergy())
+	$EnergyScreen2.update_energy($Player.getRemainingEnergy())
 
 func _on_PongGame_ai_score():
-	$LifeScreen.lifes = $Player.looseLife()
+	$Player.looseLife()
+	$LifeScreen.lifes = $Player.getRemainaingLifes()
+	$LifeScreen2.lifes = $Player.getRemainaingLifes()
+	
+	
 	$PongGame.reset_ball()
 
 func _on_PongGame_player_score():
@@ -49,3 +54,4 @@ func _on_LeftLever_on_lever_pressed():
 func _on_RightLever_on_lever_pressed():
 	#if $Player.discharge_energy(100):
 	$PongGame.move_player_paddle_down()
+	
