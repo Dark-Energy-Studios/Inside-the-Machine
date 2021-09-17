@@ -3,6 +3,9 @@ extends StaticBody2D
 export var energy_cost = 5
 export var flip_instruction_key: bool = false
 
+const valid_sound = preload("res://Media/Audio/lever_valid_sound.wav")
+const invalid_sound = preload("res://Media/Audio/lever_invalid_sound.wav")
+
 var pressed:bool = false
 var current_interaction
 
@@ -27,10 +30,16 @@ func interaction_interact(interaction):
 	if interaction.get_node(interaction.interaction_parent).discharge_energy(energy_cost):
 		pressed = true
 		$AnimatedSprite.play("default")
+	
+		$AudioStreamPlayer.stream = valid_sound
+		$AudioStreamPlayer.play()
 		emit_signal("on_lever_changed")
 		emit_signal("on_lever_pressed")
 		$Timer.start(.5)
 		current_interaction = interaction
+	else:
+		$AudioStreamPlayer.stream = invalid_sound
+		$AudioStreamPlayer.play()
 
 func interaction_not_interacted(interaction):
 	if pressed:
