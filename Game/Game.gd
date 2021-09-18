@@ -3,6 +3,7 @@ extends Node2D
 var fake_game: PongGame
 export var playing: bool = true
 export var player_existing: bool = true
+export var main_scene: bool = true
 
 func _ready():
 	var pos = $Monitor/Position2D.position
@@ -10,6 +11,7 @@ func _ready():
 	var fake_scene = load("res://Components/PongGame/PongGame.tscn")
 	fake_game = fake_scene.instance()
 	$Monitor.add_child(fake_game)
+	fake_game.paddle_shadows = false
 	fake_game.ball_moving = false
 	fake_game.use_ai = false
 	fake_game.classicly_playing = false
@@ -33,14 +35,16 @@ func _process(_delta):
 	$PongGame.ball_moving = playing
 	$Player.visible = player_existing
 	$Player/Camera2D.current = player_existing
-	$EnergyScreen.update_energy($Player.getRemainingEnergy())
-	$EnergyScreen2.update_energy($Player.getRemainingEnergy())
+	
+	var remaining_energy = $Player.getRemainingEnergy()
+	$EnergyScreen.update_energy(remaining_energy)
+	$EnergyScreen2.update_energy(remaining_energy)
+	$Lighting.current_energy = remaining_energy
 
 func _on_PongGame_ai_score():
 	$Player.looseLife()
 	$LifeScreen.lifes = $Player.getRemainaingLifes()
 	$LifeScreen2.lifes = $Player.getRemainaingLifes()
-	
 	
 	$PongGame.reset_ball()
 
@@ -54,4 +58,3 @@ func _on_LeftLever_on_lever_pressed():
 func _on_RightLever_on_lever_pressed():
 	#if $Player.discharge_energy(100):
 	$PongGame.move_player_paddle_down()
-	

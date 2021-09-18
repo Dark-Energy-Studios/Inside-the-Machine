@@ -8,7 +8,7 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		index += 1
-		if index > len($AnimationPlayer.get_animation_list()):
+		if index > len($AnimationPlayer.get_animation_list()) - 1:
 			print(index)
 			get_tree().change_scene("res://Game/Game.tscn")
 		else: 

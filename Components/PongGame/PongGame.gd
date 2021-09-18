@@ -9,6 +9,7 @@ export var ball_speed: float = 50
 export var classicly_playing: bool = false
 export var ball_warninglight: bool = false
 export var ball_moving: bool = false
+export var paddle_shadows: bool = true
 
 onready var ball: PongBall = get_node("PongBall")
 onready var player_paddle: PongPaddle = get_node("PlayerPaddle")
@@ -23,6 +24,9 @@ func _ready():
 
 func _process(_delta):
 	sync_ball_settings()
+	
+	$PlayerPaddle/LightOccluder2D.visible = paddle_shadows
+	$AIPaddle/LightOccluder2D.visible = paddle_shadows
 
 func _physics_process(_delta):
 	if classicly_playing:
