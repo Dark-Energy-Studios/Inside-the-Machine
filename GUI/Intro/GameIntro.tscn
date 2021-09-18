@@ -3,7 +3,7 @@
 [ext_resource path="res://Game/Game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/Intro/GameIntro.gd" type="Script" id=2]
 [ext_resource path="res://Media/Fonts/Magero.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Media/Audio/Voicelines/Intro.wav" type="AudioStream" id=4]
+[ext_resource path="res://Media/Audio/Voicelines/Intro0.wav" type="AudioStream" id=4]
 [ext_resource path="res://Media/Audio/Voicelines/Intro1.wav" type="AudioStream" id=5]
 [ext_resource path="res://Media/Visual/Player/Player_AnimatedSprite.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://Media/Audio/Voicelines/Intro2.wav" type="AudioStream" id=7]
@@ -18,7 +18,7 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Intro0"
-length = 7.0
+length = 11.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:zoom")
 tracks/0/interp = 1
@@ -26,10 +26,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 6.9 ),
+"times": PoolRealArray( 0, 11.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.09, 0.09 ), Vector2( 0.5, 0.5 ) ]
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 0.09, 0.09 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Camera2D:position")
@@ -41,7 +41,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 107.765, 44.1034 ) ]
+"values": [ Vector2( 153.864, 4.87925 ) ]
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("VoiceOver")
@@ -71,7 +71,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-length = 8.5
+length = 9.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:zoom")
 tracks/0/interp = 1
@@ -377,7 +377,7 @@ tracks/8/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-length = 6.5
+length = 7.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Camera2D:zoom:x")
 tracks/0/interp = 1
@@ -519,7 +519,7 @@ tracks/12/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-length = 13.0
+length = 14.2
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Camera2D:position:x")
 tracks/0/interp = 1
@@ -621,7 +621,7 @@ tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
 "clips": [ {
-"end_offset": 0.0,
+"end_offset": 0.34231,
 "start_offset": 0.0,
 "stream": ExtResource( 10 )
 } ],
@@ -636,24 +636,23 @@ playing = false
 player_existing = false
 
 [node name="Label" type="Label" parent="."]
-margin_left = 172.194
-margin_top = 2.68175
-margin_right = 312.194
-margin_bottom = 55.6818
+margin_left = 156.765
+margin_top = 271.621
+margin_right = 636.765
+margin_bottom = 386.621
+rect_scale = Vector2( 0.3, 0.3 )
 custom_fonts/font = SubResource( 1 )
-text = "Pull this
-lever to 
-move the 
-paddle down"
+text = "Use the hometrainer
+to regain energy"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 36.0721, 41.2495 )
+position = Vector2( 247.688, 281.743 )
 current = true
-zoom = Vector2( 0.75, 0.75 )
+zoom = Vector2( 0.3, 0.3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Intro0 = SubResource( 2 )
@@ -666,7 +665,6 @@ anims/Intro5 = SubResource( 7 )
 [node name="VoiceOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = 3.0
-bus = "Voice"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 6 )
