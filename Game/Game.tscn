@@ -105,35 +105,49 @@ color = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
 
 [node name="Lighting" parent="." instance=ExtResource( 14 )]
 
-[node name="Light" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 10.3181, 71.0362 )
+[node name="LeftLeverLight1" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 3.4992, 28.5117 )
+rotation = -1.5708
 
-[node name="Light2" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 313.909, 72.6236 )
+[node name="LeftLeverLight2" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 33.9416, 76.5484 )
+rotation = 3.14159
 
-[node name="Light3" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 161.915, 171.042 )
+[node name="RightLeverLight1" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 316.808, 28.8074 )
+rotation = 1.5708
 
-[node name="Light4" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 203.981, 170.646 )
+[node name="RightLeverLight2" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 289.863, 76.5179 )
+rotation = -3.14159
 
-[node name="Light5" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 117.865, 314.702 )
+[node name="CorridorLight1" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 163.465, 173.084 )
+rotation = -1.5708
 
-[node name="Light6" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 117.865, 247.635 )
+[node name="CorridorLight2" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 204.481, 172.911 )
+rotation = 1.5708
 
-[node name="Light7" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 294.066, 313.909 )
+[node name="PauseLight1" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 115.505, 252.957 )
+rotation = -1.5708
 
-[node name="Light8" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 298.035, 247.635 )
+[node name="PauseLight2" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 115.355, 301.06 )
+rotation = -1.5708
 
-[node name="Light9" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 32.1624, 27.7243 )
+[node name="PauseLight3" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 300.505, 252.99 )
+rotation = 1.5708
 
-[node name="Light10" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 289.549, 29.1385 )
+[node name="PauseLight4" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 300.513, 301.054 )
+rotation = 1.5708
+
+[node name="PauseLight6" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 194.091, 316.864 )
+rotation = 3.14159
 
 [connection signal="ai_score" from="PongGame" to="." method="_on_PongGame_ai_score"]
 [connection signal="player_score" from="PongGame" to="." method="_on_PongGame_player_score"]
