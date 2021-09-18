@@ -18,3 +18,7 @@ func _ready():
 	if gets("fx_volume") == null:
 		sets("fx_volume", 0.0)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("FX"), gets("fx_volume"))
+
+	if gets("voice_volume") == null:
+		sets("voice_volume", 0.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Voice"), gets("voice_volume"))
