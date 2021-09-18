@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Components/MissionControl/MissionControl.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Components/PongGame/PongGame.tscn" type="PackedScene" id=2]
@@ -19,11 +19,13 @@
 [ext_resource path="res://Media/Visual/Background/Circuit.png" type="Texture" id=17]
 [ext_resource path="res://Media/Visual/Background/circuit_multi.tres" type="Texture" id=18]
 [ext_resource path="res://Components/CountdownClock/CountdownClock.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Media/Visual/Room/cassette.png" type="Texture" id=20]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -16.0069, 7.98399, -15.9627, -7.9922, 15.9013, -7.9701, 16.0118, 7.9398, 14.9953, 7.05592, 14.9953, -7.04203, -14.9904, -7.01993, -15.0125, 7.03382 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 12.4981 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "Mono"
@@ -124,7 +126,7 @@ bus = "Music"
 [node name="AudioFadeInTween" type="Tween" parent="."]
 
 [node name="default" type="StaticBody2D" parent="."]
-position = Vector2( 136.825, 234.406 )
+position = Vector2( 136.457, 232.882 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 11 )
@@ -138,6 +140,9 @@ shape = SubResource( 2 )
 [node name="Default_Music" type="AudioStreamPlayer" parent="default"]
 stream = ExtResource( 10 )
 bus = "Music"
+
+[node name="Sprite" type="Sprite" parent="default"]
+texture = ExtResource( 20 )
 
 [node name="EnergyScreen" parent="." instance=ExtResource( 12 )]
 position = Vector2( 122.389, 6.77013 )
@@ -194,7 +199,7 @@ position = Vector2( 300.513, 301.054 )
 rotation = 1.5708
 
 [node name="PauseLight6" parent="Lighting" instance=ExtResource( 15 )]
-position = Vector2( 194.091, 316.864 )
+position = Vector2( 193.646, 316.641 )
 rotation = 3.14159
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -217,10 +222,12 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 13 )
 texture_scale = 0.6
 shadow_enabled = true
+
 [node name="RechargeTimer" type="Timer" parent="."]
 
 [connection signal="ai_score" from="PongGame" to="." method="_on_PongGame_ai_score"]
 [connection signal="player_score" from="PongGame" to="." method="_on_PongGame_player_score"]
 [connection signal="on_lever_pressed" from="LeftLever" to="." method="_on_LeftLever_on_lever_pressed"]
 [connection signal="on_lever_pressed" from="RightLever" to="." method="_on_RightLever_on_lever_pressed"]
+[connection signal="on_countdown_expired" from="CountdownClock" to="." method="_on_CountdownClock_on_countdown_expired"]
 [connection signal="timeout" from="RechargeTimer" to="." method="_on_RechargeTimer_timeout"]
