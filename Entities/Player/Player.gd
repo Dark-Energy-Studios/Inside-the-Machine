@@ -84,7 +84,6 @@ func get_input_axis():
 	return axis.normalized()
 
 func die():
-	$CollisionShape2D.queue_free()
 	$AnimationPlayer.play("die")
 
 

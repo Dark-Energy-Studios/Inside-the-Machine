@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Components/MissionControl/MissionControl.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Components/PongGame/PongGame.tscn" type="PackedScene" id=2]
@@ -12,9 +12,12 @@
 [ext_resource path="res://Media/Audio/default1.wav" type="AudioStream" id=10]
 [ext_resource path="res://Game/default.gd" type="Script" id=11]
 [ext_resource path="res://Components/EnergyScreen/EnergyScreen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Media/Visual/Light/light.png" type="Texture" id=13]
+[ext_resource path="res://Components/Lighting/Lighting.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Components/Light/Light.tscn" type="PackedScene" id=15]
 
 [sub_resource type="OccluderPolygon2D" id=1]
-polygon = PoolVector2Array( -15.9644, -7.94346, -15.9997, 7.97655, 15.9925, 7.98436, 16.0003, -7.96876 )
+polygon = PoolVector2Array( -16.0069, 7.98399, -15.9627, -7.9922, 15.9013, -7.9701, 16.0118, 7.9398, 14.9953, 7.05592, 14.9953, -7.04203, -14.9904, -7.01993, -15.0125, 7.03382 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -50,8 +53,13 @@ occluder = SubResource( 1 )
 [node name="Position2D" type="Position2D" parent="Monitor"]
 position = Vector2( -14.0148, -6.00744 )
 
+[node name="Light2D" type="Light2D" parent="Monitor"]
+texture = ExtResource( 13 )
+texture_scale = 0.6
+shadow_enabled = true
+
 [node name="LifeScreen" parent="." instance=ExtResource( 6 )]
-position = Vector2( 233.831, 232.107 )
+position = Vector2( 233.831, 243.636 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="LifeScreen2" parent="." instance=ExtResource( 6 )]
@@ -88,8 +96,44 @@ position = Vector2( 123.389, 6.77013 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="EnergyScreen2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 264.032, 231.906 )
+position = Vector2( 259.782, 243.656 )
 scale = Vector2( 0.75, 0.75 )
+z_index = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
+
+[node name="Lighting" parent="." instance=ExtResource( 14 )]
+
+[node name="Light" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 10.3181, 71.0362 )
+
+[node name="Light2" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 313.909, 72.6236 )
+
+[node name="Light3" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 161.915, 171.042 )
+
+[node name="Light4" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 203.981, 170.646 )
+
+[node name="Light5" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 117.865, 314.702 )
+
+[node name="Light6" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 117.865, 247.635 )
+
+[node name="Light7" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 294.066, 313.909 )
+
+[node name="Light8" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 298.035, 247.635 )
+
+[node name="Light9" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 32.1624, 27.7243 )
+
+[node name="Light10" parent="Lighting" instance=ExtResource( 15 )]
+position = Vector2( 289.549, 29.1385 )
 
 [connection signal="ai_score" from="PongGame" to="." method="_on_PongGame_ai_score"]
 [connection signal="player_score" from="PongGame" to="." method="_on_PongGame_player_score"]
