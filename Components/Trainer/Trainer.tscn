@@ -10,10 +10,10 @@ extents = Vector2( 13.1762, 2 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3.67617, 6.75 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "fitness"
 tracks/0/type = "value"
-tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/path = NodePath("Walking_FX:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/1/path = NodePath("Walking_FX:pitch_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -37,10 +37,9 @@ tracks/1/keys = {
 "values": [ 1.25 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "stop"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
-tracks/0/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/0/path = NodePath("Walking_FX:pitch_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -52,7 +51,7 @@ tracks/0/keys = {
 "values": [ 1.25, 0.01 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/path = NodePath("Walking_FX:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -80,16 +79,17 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Walking_FX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 pitch_scale = 1.25
+bus = "FX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fitness = SubResource( 4 )
-anims/stop = SubResource( 3 )
+anims/fitness = SubResource( 3 )
+anims/stop = SubResource( 4 )
 
-[node name="StopTrainer" type="Timer" parent="."]
+[node name="StopTimer" type="Timer" parent="."]
 wait_time = 0.5
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="StopTrainer" to="." method="_on_StopTrainer_timeout"]
+[connection signal="timeout" from="StopTimer" to="." method="_on_StopTrainer_timeout"]

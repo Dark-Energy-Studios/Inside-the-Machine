@@ -44,8 +44,7 @@ __meta__ = {
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="Camera2D/UI/MainMenu"]
 stream = ExtResource( 6 )
 volume_db = -10.0
->>>>>>> GUI,Game: Lower down background audio volume
-autoplay = true
+bus = "Music"
 
 [node name="Tween" type="Tween" parent="Camera2D/UI/MainMenu"]
 

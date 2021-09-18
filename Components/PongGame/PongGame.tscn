@@ -34,8 +34,9 @@ position = Vector2( 381.461, 196.317 )
 scale = Vector2( 0.8, 0.8 )
 speed = 50.0
 
-[node name="CollisionAudio" type="AudioStreamPlayer2D" parent="PongBall"]
+[node name="Ball_Collision_FX" type="AudioStreamPlayer2D" parent="PongBall"]
 stream = ExtResource( 5 )
+bus = "FX"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
