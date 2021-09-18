@@ -25,7 +25,7 @@ func _ready():
 			-80, 0, 0.1,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
-
+	
 func _process(_delta):
 	fake_game.ball.visible = $PongGame.ball.visible
 	fake_game.ball.position = $PongGame.ball.position

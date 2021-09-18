@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Circuit.png-0dd205904fb532f975d20a789c289409.stex"
+path="res://.import/circuit_multi14.png-c44d0f660c60e53771a7e7198aae03b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/Visual/Background/Circuit.png"
-dest_files=[ "res://.import/Circuit.png-0dd205904fb532f975d20a789c289409.stex" ]
+source_file="res://Media/Visual/Raw/multi/circuit_multi14.png"
+dest_files=[ "res://.import/circuit_multi14.png-c44d0f660c60e53771a7e7198aae03b4.stex" ]
 
 [params]
 
@@ -24,7 +24,7 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
