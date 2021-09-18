@@ -217,8 +217,10 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 13 )
 texture_scale = 0.6
 shadow_enabled = true
+[node name="RechargeTimer" type="Timer" parent="."]
 
 [connection signal="ai_score" from="PongGame" to="." method="_on_PongGame_ai_score"]
 [connection signal="player_score" from="PongGame" to="." method="_on_PongGame_player_score"]
 [connection signal="on_lever_pressed" from="LeftLever" to="." method="_on_LeftLever_on_lever_pressed"]
 [connection signal="on_lever_pressed" from="RightLever" to="." method="_on_RightLever_on_lever_pressed"]
+[connection signal="timeout" from="RechargeTimer" to="." method="_on_RechargeTimer_timeout"]
