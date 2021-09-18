@@ -18,7 +18,7 @@ signal on_lever_reset()
 # lever status has changed
 signal on_lever_changed()
 
-func _ready():
+func _ready():	
 	if flip_instruction_key:
 		$EKey.scale.x *= -1
 
@@ -31,15 +31,15 @@ func interaction_interact(interaction):
 		pressed = true
 		$AnimatedSprite.play("default")
 	
-		$AudioStreamPlayer.stream = valid_sound
-		$AudioStreamPlayer.play()
+		$Lever_FX.stream = valid_sound
+		$Lever_FX.play()
 		emit_signal("on_lever_changed")
 		emit_signal("on_lever_pressed")
 		$Timer.start(.5)
 		current_interaction = interaction
 	else:
-		$AudioStreamPlayer.stream = invalid_sound
-		$AudioStreamPlayer.play()
+		$Lever_FX.stream = invalid_sound
+		$Lever_FX.play()
 
 func interaction_not_interacted(interaction):
 	if pressed:

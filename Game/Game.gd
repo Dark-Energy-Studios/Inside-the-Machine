@@ -17,9 +17,10 @@ func _ready():
 	fake_game.ball_warninglight = false
 	fake_game.scale = Vector2(0.035, 0.03)
 	
+	$Game_Music.play()
 	var tween = get_node("AudioFadeInTween")
-	tween.interpolate_property($BackgroundAudio, "volume_db",
-			-80, -10, 0.1,
+	tween.interpolate_property($Game_Music, "volume_db",
+			-80, 0, 0.1,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 

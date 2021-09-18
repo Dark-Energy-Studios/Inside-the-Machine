@@ -74,10 +74,9 @@ __meta__ = {
 [node name="Trainer" parent="." instance=ExtResource( 8 )]
 position = Vector2( 250.835, 282.69 )
 
-[node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
+[node name="Game_Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -80.0
-autoplay = true
+bus = "Music"
 
 [node name="AudioFadeInTween" type="Tween" parent="."]
 
@@ -93,8 +92,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="default"]
 shape = SubResource( 2 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="default"]
+[node name="Default_Music" type="AudioStreamPlayer" parent="default"]
 stream = ExtResource( 10 )
+bus = "Music"
 
 [connection signal="ai_score" from="PongGame" to="." method="_on_PongGame_ai_score"]
 [connection signal="player_score" from="PongGame" to="." method="_on_PongGame_player_score"]

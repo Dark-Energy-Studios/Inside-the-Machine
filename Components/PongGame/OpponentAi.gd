@@ -25,4 +25,4 @@ func _physics_process(_delta):
 
 
 func _on_PongBall_on_collision():
-	$PongBall/CollisionAudio.play()
+	$PongBall/Ball_Collision_FX.play()

@@ -8,9 +8,9 @@ func interaction_can_interact(interaction_parent: Node):
 func interaction_interact(interaction):
 	if !lost_walkman_vibes:
 		get_parent().get_node("BackgroundAudio").stop()
-		$AudioStreamPlayer.play()
+		$Default_Music.play()
 	else:
-		$AudioStreamPlayer.stop()
+		$Default_Music.stop()
 		get_parent().get_node("BackgroundAudio").play()
 		
 	lost_walkman_vibes = !lost_walkman_vibes
