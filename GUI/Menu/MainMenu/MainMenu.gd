@@ -1,9 +1,13 @@
 extends Control
 
+
+func _ready():
+	$BackgroundAudio.volume_db = -10
+
 func _on_Start_pressed():
 	var tween = get_node("Tween")
 	tween.interpolate_property($BackgroundAudio, "volume_db",
-			0, -80, 0.1,
+			$BackgroundAudio.volume_db, -80, 0.1,
 			Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	tween.start()
 

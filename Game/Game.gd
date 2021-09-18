@@ -19,7 +19,7 @@ func _ready():
 	
 	var tween = get_node("AudioFadeInTween")
 	tween.interpolate_property($BackgroundAudio, "volume_db",
-			-80, 0, 0.1,
+			-80, -10, 0.1,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 
