@@ -11,7 +11,6 @@ func _ready():
 
 func apply_energy(val):
 	current_energy = val/100.0
-	print(current_energy)
 
 func _on_Timer_timeout():
 	for child in get_children():
