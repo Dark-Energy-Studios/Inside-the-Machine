@@ -1,11 +1,24 @@
 extends Node2D
 
+signal on_player_won()
+signal on_player_lost()
+
 var fake_game: PongGame
+enum ENERGY_MODEL {OFF, ON, AUTO_RECHARGE}
+
 export var playing: bool = true
 export var player_existing: bool = true
 export var main_scene: bool = true
 
+export var ball_speed: int = 100
+export var player_speed: int = 100
+export (ENERGY_MODEL) var energy_model = ENERGY_MODEL.ON
+
 func _ready():
+	
+	_configure_pong_game()
+	_configure_energy_model()
+	
 	var pos = $Monitor/Position2D.position
 	
 	var fake_scene = load("res://Components/PongGame/PongGame.tscn")
@@ -27,6 +40,21 @@ func _ready():
 	tween.start()
 	$CountdownClock.start()
 	
+func _configure_pong_game():
+	# passthrough exports
+	$PongGame.ball_speed = ball_speed
+	$PongGame.player_speed = player_speed
+	
+func _configure_energy_model():
+	match energy_model:
+		ENERGY_MODEL.OFF:
+			$EnergyScreen.hide()
+			$EnergyScreen2.hide()
+			$LeftLever.energy_cost = 0
+			$RightLever.energy_cost = 0
+		ENERGY_MODEL.AUTO_RECHARGE:
+			$RechargeTimer.start(1)
+	
 func _process(_delta):
 	fake_game.ball.visible = $PongGame.ball.visible
 	fake_game.ball.position = $PongGame.ball.position
@@ -47,6 +75,9 @@ func _on_PongGame_ai_score():
 	$LifeScreen.lifes = $Player.getRemainaingLifes()
 	$LifeScreen2.lifes = $Player.getRemainaingLifes()
 	
+	if $Player.getRemainaingLifes() == 0:
+		emit_signal("on_player_lost")
+	
 	$PongGame.reset_ball()
 
 func _on_PongGame_player_score():
@@ -59,3 +90,6 @@ func _on_LeftLever_on_lever_pressed():
 func _on_RightLever_on_lever_pressed():
 	#if $Player.discharge_energy(100):
 	$PongGame.move_player_paddle_down()
+
+func _on_RechargeTimer_timeout():
+	$Player.recharge_energy(5)
