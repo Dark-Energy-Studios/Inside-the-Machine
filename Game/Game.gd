@@ -25,6 +25,7 @@ func _ready():
 			-80, 0, 0.1,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
+	$CountdownClock.start()
 	
 func _process(_delta):
 	fake_game.ball.visible = $PongGame.ball.visible
