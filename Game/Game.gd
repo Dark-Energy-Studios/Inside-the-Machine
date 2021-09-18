@@ -1,6 +1,8 @@
 extends Node2D
 
 var fake_game: PongGame
+export var playing: bool = true
+export var player_existing: bool = true
 
 func _ready():
 	var pos = $Monitor/Position2D.position
@@ -22,6 +24,10 @@ func _process(_delta):
 	fake_game.ai_paddle.position = $PongGame.ai_paddle.position
 	$CanvasLayer/Energy.text = "Energy: %d" % $Player.energy
 	$CanvasLayer/Life.text = "Life: %d" % $Player.lifes
+
+	$PongGame.ball_moving = playing
+	$Player.visible = player_existing
+	$Player/Camera2D.current = player_existing
 
 func _on_PongGame_ai_score():
 	$LifeScreen.lifes = $Player.looseLife()
