@@ -1,7 +1,6 @@
 extends Node2D
 
 func update_energy(remainingEnergy:int):
-	print(remainingEnergy)
 	if remainingEnergy > 80:
 		$Monitor/EnergyLabel.add_color_override("font_color", Color.green)
 	
