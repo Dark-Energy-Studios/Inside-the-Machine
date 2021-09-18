@@ -2,10 +2,9 @@ extends Node2D
 
 func _ready():
 	$PongGame.player_paddle.speed = 100
-	$Camera2D.current = false
-	$Camera2D.visible = false
 	$PongGame.visible = false
 	$EpilepsyWarning.visible = true
+	$UI/SoundMenu.visible = false
 
 #
 #func inject_cameras():
@@ -47,6 +46,15 @@ func _on_score():
 
 
 func _on_EpilepsyWarning_approved():
-	$Camera2D.visible = true
 	$EpilepsyWarning.visible = false
 	$PongGame.visible = true
+
+
+func _on_SoundMenu_on_back_pressed(emitter):
+	$UI/SoundMenu.visible = false
+	$UI/MainMenu.visible = true
+
+
+func _on_MainMenu_on_sound_pressed(emitter):
+	$UI/SoundMenu.visible = true
+	$UI/MainMenu.visible = false

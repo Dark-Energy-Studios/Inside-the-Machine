@@ -37,12 +37,24 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="."]
-margin_left = 3.88908
-margin_top = 115.612
-margin_right = 65.8891
-margin_bottom = 135.612
+margin_left = 5.21341
+margin_top = 99.1903
+margin_right = 67.2134
+margin_bottom = 119.19
 custom_fonts/font = ExtResource( 3 )
 text = "Start"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sound" type="Button" parent="."]
+margin_left = 4.68368
+margin_top = 117.996
+margin_right = 66.6837
+margin_bottom = 137.996
+custom_fonts/font = ExtResource( 3 )
+text = "Sound"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -61,4 +73,5 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Sound" to="." method="_on_Sound_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

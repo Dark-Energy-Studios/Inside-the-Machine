@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Components/PongGame/PongGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/Menu/Menu.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://GUI/Menu/MainMenu/MainMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GUI/Menu/EpilepsyWarning/EpilepsyWarning.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Media/Audio/intro.wav" type="AudioStream" id=6]
+[ext_resource path="res://GUI/Menu/SoundMenu/SoundMenu.tscn" type="PackedScene" id=7]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 2 )
@@ -22,28 +23,28 @@ player_speed = 50.0
 ball_speed = 125.0
 use_player_ai = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
-
-[node name="UI" type="Control" parent="Camera2D"]
+[node name="UI" type="Control" parent="."]
 margin_right = 320.0
 margin_bottom = 160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainMenu" parent="Camera2D/UI" instance=ExtResource( 4 )]
+[node name="MainMenu" parent="UI" instance=ExtResource( 4 )]
 
-[node name="Intro_Music" type="AudioStreamPlayer" parent="Camera2D/UI/MainMenu"]
+[node name="Intro_Music" type="AudioStreamPlayer" parent="UI/MainMenu"]
 stream = ExtResource( 6 )
 bus = "Music"
 
-[node name="Tween" type="Tween" parent="Camera2D/UI/MainMenu"]
+[node name="Tween" type="Tween" parent="UI/MainMenu"]
+
+[node name="SoundMenu" parent="UI" instance=ExtResource( 7 )]
 
 [node name="EpilepsyWarning" parent="." instance=ExtResource( 5 )]
 
 [connection signal="ai_score" from="PongGame" to="." method="_on_score"]
 [connection signal="player_score" from="PongGame" to="." method="_on_score"]
-[connection signal="tween_completed" from="Camera2D/UI/MainMenu/Tween" to="Camera2D/UI/MainMenu" method="_on_Tween_tween_completed"]
+[connection signal="on_sound_pressed" from="UI/MainMenu" to="." method="_on_MainMenu_on_sound_pressed"]
+[connection signal="tween_completed" from="UI/MainMenu/Tween" to="UI/MainMenu" method="_on_Tween_tween_completed"]
+[connection signal="on_back_pressed" from="UI/SoundMenu" to="." method="_on_SoundMenu_on_back_pressed"]
 [connection signal="approved" from="EpilepsyWarning" to="." method="_on_EpilepsyWarning_approved"]
