@@ -44,7 +44,7 @@ tracks/1/keys = {
 "values": [ Vector2( 107.765, 44.1034 ) ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/path = NodePath("VoiceOver")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -154,7 +154,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/7/type = "audio"
-tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/path = NodePath("VoiceOver")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -254,7 +254,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/7/type = "audio"
-tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/path = NodePath("VoiceOver")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -362,7 +362,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/8/type = "audio"
-tracks/8/path = NodePath("AudioStreamPlayer")
+tracks/8/path = NodePath("VoiceOver")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -504,7 +504,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/12/type = "audio"
-tracks/12/path = NodePath("AudioStreamPlayer")
+tracks/12/path = NodePath("VoiceOver")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -614,7 +614,7 @@ tracks/8/keys = {
 to regain energy" ]
 }
 tracks/9/type = "audio"
-tracks/9/path = NodePath("AudioStreamPlayer")
+tracks/9/path = NodePath("VoiceOver")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -663,9 +663,10 @@ anims/Intro3 = SubResource( 5 )
 anims/Intro4 = SubResource( 6 )
 anims/Intro5 = SubResource( 7 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="VoiceOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = 3.0
+bus = "Voice"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 6 )
