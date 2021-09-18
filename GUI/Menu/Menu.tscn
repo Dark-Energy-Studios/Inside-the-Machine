@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Components/PongGame/PongGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/Menu/Menu.gd" type="Script" id=2]
@@ -35,19 +35,15 @@ __meta__ = {
 
 [node name="MainMenu" parent="Camera2D/UI" instance=ExtResource( 4 )]
 
-[node name="EpilepsyWarning" parent="." instance=ExtResource( 5 )]
-
-[connection signal="ai_score" from="PongGame" to="." method="_on_score"]
-[connection signal="player_score" from="PongGame" to="." method="_on_score"]
-[connection signal="approved" from="EpilepsyWarning" to="." method="_on_EpilepsyWarning_approved"]
-
-[node name="BackgroundAudio" type="AudioStreamPlayer" parent="Camera2D/UI/MainMenu"]
+[node name="Intro_Music" type="AudioStreamPlayer" parent="Camera2D/UI/MainMenu"]
 stream = ExtResource( 6 )
-volume_db = -10.0
 bus = "Music"
 
 [node name="Tween" type="Tween" parent="Camera2D/UI/MainMenu"]
 
+[node name="EpilepsyWarning" parent="." instance=ExtResource( 5 )]
+
 [connection signal="ai_score" from="PongGame" to="." method="_on_score"]
 [connection signal="player_score" from="PongGame" to="." method="_on_score"]
 [connection signal="tween_completed" from="Camera2D/UI/MainMenu/Tween" to="Camera2D/UI/MainMenu" method="_on_Tween_tween_completed"]
+[connection signal="approved" from="EpilepsyWarning" to="." method="_on_EpilepsyWarning_approved"]
