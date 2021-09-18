@@ -20,11 +20,10 @@ func _on_Timer_timeout():
 		emit_signal("on_countdown_tick", time_remaining)	
 
 	
-func update_label(time_remaining):
-	var minute = time_remaining / 60
-	var seconds = time_remaining % 60
-	var time_label = "%d:%02d" % [minute, seconds]
-	$Sprite/Label.text = time_label
+func update_label(time):
+	var minute = time / 60
+	var seconds = time % 60
+	$Sprite/Label.text  = "%d:%02d" % [minute, seconds]
 	
 func start():
 	time_remaining = duration
