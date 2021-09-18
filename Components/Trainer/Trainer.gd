@@ -16,9 +16,8 @@ func interaction_can_interact(interaction_parent: Node):
 func interaction_interact(interaction):
 	interaction.get_node(interaction.interaction_parent).recharge_energy(recharge_amount)
 
-	#$AnimatedSprite.play("default")
 	emit_signal("on_trainer_changed")
-	emit_signal("on_trainer_pressed")
+	emit_signal("on_trainer_use")
 		
 	# Stop timer to prevent stop animation
 	$StopTimer.stop()
