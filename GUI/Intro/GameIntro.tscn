@@ -1,17 +1,77 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Game/Game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/Intro/GameIntro.gd" type="Script" id=2]
 [ext_resource path="res://Media/Fonts/Magero.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Media/Audio/Voicelines/Intro.wav" type="AudioStream" id=4]
+[ext_resource path="res://Media/Audio/Voicelines/Intro1.wav" type="AudioStream" id=5]
+[ext_resource path="res://Media/Visual/Player/Player_AnimatedSprite.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Media/Audio/Voicelines/Intro2.wav" type="AudioStream" id=7]
+[ext_resource path="res://Media/Audio/Voicelines/Intro3.wav" type="AudioStream" id=8]
+[ext_resource path="res://Media/Audio/Voicelines/Intro4.wav" type="AudioStream" id=9]
+[ext_resource path="res://Media/Audio/Voicelines/Intro5.wav" type="AudioStream" id=10]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Intro1"
-length = 4.0
+[sub_resource type="Animation" id=2]
+resource_name = "Intro0"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.09, 0.09 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 107.765, 44.1034 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "" ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 8.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:zoom")
 tracks/0/interp = 1
@@ -93,9 +153,22 @@ tracks/6/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/7/type = "audio"
+tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
-[sub_resource type="Animation" id=3]
-resource_name = "Intro2"
+[sub_resource type="Animation" id=4]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:zoom")
@@ -134,7 +207,7 @@ tracks/2/keys = {
 "values": [ "Pull this
 lever to 
 move the 
-paddle down" ]
+paddle up" ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Label:rect_position")
@@ -180,10 +253,23 @@ tracks/6/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/7/type = "audio"
+tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
-[sub_resource type="Animation" id=4]
-resource_name = "Intro3"
-length = 5.0
+[sub_resource type="Animation" id=5]
+length = 7.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:position")
 tracks/0/interp = 1
@@ -221,7 +307,7 @@ tracks/2/keys = {
 "values": [ "Pull this
 lever to 
 move the 
-paddle up" ]
+paddle down" ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Label:rect_position")
@@ -275,10 +361,23 @@ tracks/7/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/8/type = "audio"
+tracks/8/path = NodePath("AudioStreamPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 4 )
+}
 
-[sub_resource type="Animation" id=5]
-resource_name = "Intro4"
-length = 5.0
+[sub_resource type="Animation" id=6]
+length = 6.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Camera2D:zoom:x")
 tracks/0/interp = 1
@@ -404,10 +503,23 @@ tracks/11/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/12/type = "audio"
+tracks/12/path = NodePath("AudioStreamPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
-[sub_resource type="Animation" id=6]
-resource_name = "Intro5"
-length = 5.0
+[sub_resource type="Animation" id=7]
+length = 13.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Camera2D:position:x")
 tracks/0/interp = 1
@@ -475,7 +587,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"points": PoolRealArray( 203.197, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 156.765, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/7/type = "bezier"
@@ -485,7 +597,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"points": PoolRealArray( 268.645, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 271.621, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/8/type = "value"
@@ -501,6 +613,20 @@ tracks/8/keys = {
 "values": [ "Use the hometrainer
 to regain energy" ]
 }
+tracks/9/type = "audio"
+tracks/9/path = NodePath("AudioStreamPlayer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [node name="GameIntro" type="Node2D"]
 script = ExtResource( 2 )
@@ -510,27 +636,36 @@ playing = false
 player_existing = false
 
 [node name="Label" type="Label" parent="."]
-margin_left = 203.197
-margin_top = 268.645
-margin_right = 383.197
-margin_bottom = 321.645
-rect_scale = Vector2( 0.3, 0.3 )
-custom_fonts/font = SubResource( 2 )
-text = "Use the hometrainer
-to regain energy"
+margin_left = 172.194
+margin_top = 2.68175
+margin_right = 312.194
+margin_bottom = 55.6818
+custom_fonts/font = SubResource( 1 )
+text = "Pull this
+lever to 
+move the 
+paddle down"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 247.688, 281.743 )
+position = Vector2( 36.0721, 41.2495 )
 current = true
-zoom = Vector2( 0.3, 0.3 )
+zoom = Vector2( 0.75, 0.75 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Intro1 = SubResource( 1 )
-anims/Intro2 = SubResource( 3 )
-anims/Intro3 = SubResource( 4 )
-anims/Intro4 = SubResource( 5 )
-anims/Intro5 = SubResource( 6 )
+anims/Intro0 = SubResource( 2 )
+anims/Intro1 = SubResource( 3 )
+anims/Intro2 = SubResource( 4 )
+anims/Intro3 = SubResource( 5 )
+anims/Intro4 = SubResource( 6 )
+anims/Intro5 = SubResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = 3.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 6 )
