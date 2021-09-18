@@ -1,8 +1,70 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Media/TileMap/room.tres" type="TileSet" id=1]
+[ext_resource path="res://Components/MissionControl/MissionControl.gd" type="Script" id=2]
+[ext_resource path="res://Media/Visual/Room/vlc_player.png" type="Texture" id=3]
+[ext_resource path="res://Media/Visual/Room/vlc_player_staple.png" type="Texture" id=4]
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( 0, 16, 16, 16, 16, 13, 15, 13, 15, 11, 14, 11, 14, 10, 13, 10, 13, 8, 12, 8, 12, 7, 11, 7, 11, 5, 10, 5, 10, 3, 9, 3, 9, 2, 7, 2, 7, 3, 6, 3, 6, 5, 5, 5, 5, 7, 4, 7, 4, 8, 3, 8, 3, 10, 2, 10, 2, 11, 1, 11, 1, 13, 0, 13 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( 0, 16, 16, 16, 16, 9, 15, 9, 15, 8, 14, 8, 14, 7, 13, 7, 13, 5, 12, 5, 12, 4, 11, 4, 11, 2, 10, 2, 10, 1, 9, 1, 9, 0, 7, 0, 7, 1, 6, 1, 6, 2, 5, 2, 5, 4, 4, 4, 4, 5, 3, 5, 3, 7, 2, 7, 2, 8, 1, 8, 1, 9, 0, 9, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "vlcplayer"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 5 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "vlc_player_staple.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/occluder = SubResource( 6 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 7 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
 
 [node name="MissionControl" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Floor" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -14,7 +76,7 @@ tile_data = PoolIntArray( 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 2, 0, 1, 2, 1, 2, 2, 1, 3, 2, 1, 4, 2, 1, 5, 2, 1, 6, 2, 1, 7, 2, 1, 8, 2, 1, 9, 2, 1, 10, 2, 1, 11, 2, 1, 12, 2, 1, 13, 2, 1, 14, 2, 1, 15, 2, 1, 16, 2, 1, 17, 2, 1, 18, 2, 1, 19, 2, 2 )
+tile_data = PoolIntArray( 0, 2, 0, 1, 2, 1, 2, 2, 1, 3, 2, 1, 4, 2, 1, 5, 2, 1, 6, 2, 1, 7, 2, 1, 8, 2, 1, 9, 2, 1, 10, 2, 1, 11, 2, 1, 12, 2, 1, 13, 2, 1, 14, 2, 1, 15, 2, 1, 16, 2, 1, 17, 2, 1, 18, 2, 1, 19, 2, 2, 327690, 44, 0, 327691, 44, 0, 327692, 44, 0 )
 
 [node name="Wall" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -26,4 +88,16 @@ tile_data = PoolIntArray( 65535, 6, 0, 20, 9, 0, 131071, 7, 0, 65556, 24, 0, 196
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 917512, 43, 0, 983057, 5, 0 )
+tile_data = PoolIntArray( 983057, 5, 0 )
+
+[node name="VLCPlayer" type="TileMap" parent="."]
+tile_set = SubResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 327690, 0, 0, 327691, 0, 0, 327692, 0, 0 )
+
+[node name="VLCPlayer2" type="TileMap" parent="."]
+tile_set = SubResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 1245191, 1, 0 )
