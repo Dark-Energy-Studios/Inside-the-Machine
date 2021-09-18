@@ -4,20 +4,37 @@ signal on_player_won()
 signal on_player_lost()
 
 var fake_game: PongGame
-enum ENERGY_MODEL {OFF, ON, AUTO_RECHARGE}
 
 export var playing: bool = true
 export var player_existing: bool = true
 export var main_scene: bool = true
 
 export var ball_speed: int = 100
-export var player_speed: int = 100
+export var player_speed: int = 1100
+
+export var block_pause_room:bool = false
+
+enum ENERGY_MODEL {OFF, ON, AUTO_RECHARGE}
 export (ENERGY_MODEL) var energy_model = ENERGY_MODEL.ON
+export(float, 0.1, 10,0.1) var energy_recharge_speed = 1
+export(int, 1, 10, 1) var trainer_recharge_amount = 5
+export(int, 1, 10, 1) var lever_energy_cost = 5
+
+export var easter_egg:bool = false
+
+export (int, 30, 300, 10) var countdown_duration = 60
 
 func _ready():
-	
 	_configure_pong_game()
 	_configure_energy_model()
+	
+	$MissionControl.block_pause_room = block_pause_room
+	$Trainer.recharge_amount = trainer_recharge_amount
+	$LeftLever.energy_cost = lever_energy_cost
+	$RightLever.energy_cost = lever_energy_cost
+	
+	if !easter_egg:
+		remove_child($default)
 	
 	var pos = $Monitor/Position2D.position
 	
@@ -53,7 +70,7 @@ func _configure_energy_model():
 			$LeftLever.energy_cost = 0
 			$RightLever.energy_cost = 0
 		ENERGY_MODEL.AUTO_RECHARGE:
-			$RechargeTimer.start(1)
+			$RechargeTimer.start(energy_recharge_speed)
 	
 func _process(_delta):
 	fake_game.ball.visible = $PongGame.ball.visible
@@ -92,4 +109,7 @@ func _on_RightLever_on_lever_pressed():
 	$PongGame.move_player_paddle_down()
 
 func _on_RechargeTimer_timeout():
-	$Player.recharge_energy(5)
+	$Player.recharge_energy(1)
+
+func _on_CountdownClock_on_countdown_expired():
+	emit_signal("on_player_won")
