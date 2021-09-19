@@ -70,13 +70,11 @@ func check_direction(dir: Vector2) -> Vector2:
 	return dir
 
 func _on_AIGate_body_entered(body):
-	print("AI entered: " + str(body))
 	if body is PongBall:
 		emit_signal("player_score")
 
 
 func _on_PlayerGate_body_entered(body):
-	print("Player entered: " + str(body))
 	if body is PongBall:
 		emit_signal("ai_score")
 

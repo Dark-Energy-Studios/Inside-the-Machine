@@ -40,6 +40,7 @@ bus = "Music"
 [node name="SoundMenu" parent="UI" instance=ExtResource( 7 )]
 
 [node name="EpilepsyWarning" parent="." instance=ExtResource( 5 )]
+visible = false
 
 [connection signal="ai_score" from="PongGame" to="." method="_on_score"]
 [connection signal="player_score" from="PongGame" to="." method="_on_score"]

@@ -2,8 +2,8 @@ extends Node2D
 
 func _ready():
 	$PongGame.player_paddle.speed = 100
-	$PongGame.visible = false
-	$EpilepsyWarning.visible = true
+#	$PongGame.visible = false
+#	$EpilepsyWarning.visible = true
 	$UI/SoundMenu.visible = false
 
 #
@@ -43,11 +43,11 @@ func _ready():
 
 func _on_score():
 	$PongGame.reset_ball()
-
-
-func _on_EpilepsyWarning_approved():
-	$EpilepsyWarning.visible = false
-	$PongGame.visible = true
+#
+#
+#func _on_EpilepsyWarning_approved():
+#	$EpilepsyWarning.visible = false
+#	$PongGame.visible = true
 
 
 func _on_SoundMenu_on_back_pressed(emitter):

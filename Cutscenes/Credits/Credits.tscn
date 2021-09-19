@@ -1,0 +1,290 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Media/Visual/Colors/Black.png" type="Texture" id=1]
+[ext_resource path="res://Media/Fonts/Magero.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Media/Visual/Player/Player_AnimatedSprite.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://Cutscenes/Credits/Credits.gd" type="Script" id=4]
+[ext_resource path="res://Media/Audio/pulse02.wav" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0.356863, 0.356863, 0.356863, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 1
+outline_color = Color( 0.968627, 0.376471, 0.282353, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 1
+outline_color = Color( 0.52549, 0.027451, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0.0745098, 0.364706, 0.866667, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "credits"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 38.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 176.788, -42.6536 ), Vector2( 162.788, 202.346 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RichTextLabel:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 39.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0 ), Vector2( 1, -900 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 38.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 114.9, 209.3 ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 20, 10 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 176.788, -42.6536 )
+rotation = 2.00538
+frames = ExtResource( 3 )
+animation = "die"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 1.0
+margin_right = 320.0
+margin_bottom = 917.0
+custom_fonts/mono_font = SubResource( 3 )
+custom_fonts/bold_italics_font = SubResource( 4 )
+custom_fonts/italics_font = SubResource( 5 )
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]
+
+
+
+
+[b]Thank you for playing![/b]
+
+
+
+
+
+
+
+
+
+
+
+
+
+[i]The Nightshift[/i]
+
+A game made by
+
+[b]Dark Energy Studios[/b]
+
+For the [b]Godot Wild[i] Jam[/i][/b]
+
+
+
+[code]Director[/code]
+
+3vilc00kie
+
+
+
+[code]Lead Programmer[/code]
+
+3vilc00kie
+
+
+
+[code]Programmer[/code]
+
+13darkice37
+
+Tch1b0
+
+
+
+[code]Game Designer[/code]
+
+13darkice37
+
+Tch1b0
+
+3vilc00kie
+
+
+
+[code]Sound FX[/code]
+
+Noisetaeter
+
+
+
+[code]Music by[/code]
+
+Noisetaeter
+
+
+
+[code]Music used[/code]
+
+Nightshift
+
+Pulse
+
+Pulse 2_secret
+
+
+[/center]"
+text = "
+
+
+
+
+Thank you for playing!
+
+
+
+
+
+
+
+
+
+
+
+
+
+The Nightshift
+
+A game made by
+
+Dark Energy Studios
+
+For the Godot Wild Jam
+
+
+
+Director
+
+3vilc00kie
+
+
+
+Lead Programmer
+
+3vilc00kie
+
+
+
+Programmer
+
+13darkice37
+
+Tch1b0
+
+
+
+Game Designer
+
+13darkice37
+
+Tch1b0
+
+3vilc00kie
+
+
+
+Sound FX
+
+Noisetaeter
+
+
+
+Music by
+
+Noisetaeter
+
+
+
+Music used
+
+Nightshift
+
+Pulse
+
+Pulse 2_secret
+
+
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/credits = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

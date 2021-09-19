@@ -129,6 +129,7 @@ energy = 0.9
 
 [node name="Boss" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 23.811, 56.7496 )
+bus = "Voice"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/WalkingOut = SubResource( 1 )
