@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Media/Fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GUI/Dialog/GameOver/GameOver.gd" type="Script" id=2]
+[ext_resource path="res://Media/Fonts/Magero.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 2
+outline_color = Color( 0.603922, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = -0.529732
+margin_right = 320.0
+margin_bottom = 91.4703
+custom_fonts/font = SubResource( 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" type="Button" parent="."]
+margin_left = 117.603
+margin_top = 120.057
+margin_right = 200.603
+margin_bottom = 140.057
+custom_fonts/font = ExtResource( 1 )
+text = "RETRY"
+
+[connection signal="gui_input" from="Label" to="." method="_on_Label_gui_input"]
+[connection signal="pressed" from="RetryButton" to="." method="_on_RetryButton_pressed"]
