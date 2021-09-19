@@ -1,17 +1,26 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game/Game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Level1/Level1.gd" type="Script" id=2]
+[ext_resource path="res://GUI/Dialog/GameOver/GameOver.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUI/Dialog/Win/Win.tscn" type="PackedScene" id=4]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
+paddle_speed = 2000
 block_pause_room = true
 energy_model = 2
 trainer_recharge_amount = 10
 lever_energy_cost = 1
-countdown_duration = 30
+easter_egg = true
+countdown_duration = 2
+
+[node name="GameOver" parent="." instance=ExtResource( 3 )]
+
+[node name="Win" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [connection signal="on_player_lost" from="Game" to="." method="_on_Game_on_player_lost"]
 [connection signal="on_player_won" from="Game" to="." method="_on_Game_on_player_won"]
