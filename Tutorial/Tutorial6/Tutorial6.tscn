@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Media/Audio/Voicelines/Tutorial5.wav" type="AudioStream" id=1]
+[ext_resource path="res://Tutorial/Tutorial6/Tutorial6.gd" type="Script" id=2]
+[ext_resource path="res://Game/Game.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Tutorial"
+length = 15.0
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 8, 10.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.25, 0.25 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 184.346, 74.1624 ), Vector2( 182.757, 256.39 ), Vector2( 256.39, 282.347 ) ]
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Game" parent="." instance=ExtResource( 3 )]
+playing = false
+player_existing = false
+main_scene = false
+energy_recharge_rate = 3.3
+countdown_duration = 300
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Tutorial = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Voice"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 184.346, 74.1624 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

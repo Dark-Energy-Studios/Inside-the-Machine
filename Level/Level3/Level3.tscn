@@ -10,6 +10,7 @@ script = ExtResource( 4 )
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
 paddle_speed = 2000
+block_pause_room = true
 energy_model = 2
 energy_recharge_rate = 0.5
 trainer_recharge_amount = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Game/Game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/Intro/GameIntro.gd" type="Script" id=2]
@@ -8,8 +8,7 @@
 [ext_resource path="res://Media/Visual/Player/Player_AnimatedSprite.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://Media/Audio/Voicelines/Intro2.wav" type="AudioStream" id=7]
 [ext_resource path="res://Media/Audio/Voicelines/Intro3.wav" type="AudioStream" id=8]
-[ext_resource path="res://Media/Audio/Voicelines/Intro4.wav" type="AudioStream" id=9]
-[ext_resource path="res://Media/Audio/Voicelines/Intro5.wav" type="AudioStream" id=10]
+[ext_resource path="res://Media/Audio/Voicelines/call_it_a_day.wav" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 2
@@ -377,139 +376,15 @@ tracks/8/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-length = 7.0
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("Camera2D:zoom:x")
+resource_name = "Intro4"
+length = 4.5
+tracks/0/type = "audio"
+tracks/0/path = NodePath("VoiceOver")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0.75, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 5 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("Camera2D:zoom:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 0.75, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 5 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("Camera2D:position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( 271.715, -0.25, 0, 0.25, 0, 175.606, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 5 )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("Camera2D:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"points": PoolRealArray( 40.804, -0.25, 0, 0.25, 0, 80.1818, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 5 )
-}
-tracks/4/type = "bezier"
-tracks/4/path = NodePath("Label:rect_position:x")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"points": PoolRealArray( -64, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/5/type = "bezier"
-tracks/5/path = NodePath("Label:rect_position:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"points": PoolRealArray( 61, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/6/type = "bezier"
-tracks/6/path = NodePath("Label:rect_size:x")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"points": PoolRealArray( 480, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/7/type = "bezier"
-tracks/7/path = NodePath("Label:rect_size:y")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"points": PoolRealArray( 115, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Label:text")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "But watch out!
-
-Moving the paddle
-costs energy" ]
-}
-tracks/9/type = "bezier"
-tracks/9/path = NodePath("Label:align")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/10/type = "bezier"
-tracks/10/path = NodePath("Label:rect_scale:x")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/11/type = "bezier"
-tracks/11/path = NodePath("Label:rect_scale:y")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/12/type = "audio"
-tracks/12/path = NodePath("VoiceOver")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -517,115 +392,29 @@ tracks/12/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
-
-[sub_resource type="Animation" id=7]
-length = 14.2
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("Camera2D:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 175.606, -0.25, 0, 0.25, 0, 247.688, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 5 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("Camera2D:position:y")
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 80.1818, -0.25, 0, 0.25, 0, 281.743, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 5 )
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 271.715, 40.804 ), Vector2( 155.251, -18.4792 ) ]
 }
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("Camera2D:zoom:x")
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera2D:zoom")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 1.5, -0.25, 0, 0.25, 0, 0.3, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 5 )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("Camera2D:zoom:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"points": PoolRealArray( 1.5, -0.25, 0, 0.25, 0, 0.3, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 5 )
-}
-tracks/4/type = "bezier"
-tracks/4/path = NodePath("Label:rect_scale:x")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"points": PoolRealArray( 0.3, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/5/type = "bezier"
-tracks/5/path = NodePath("Label:rect_scale:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"points": PoolRealArray( 0.3, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/6/type = "bezier"
-tracks/6/path = NodePath("Label:rect_position:x")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"points": PoolRealArray( 156.765, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/7/type = "bezier"
-tracks/7/path = NodePath("Label:rect_position:y")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"points": PoolRealArray( 271.621, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Label:text")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "Use the hometrainer
-to regain energy" ]
-}
-tracks/9/type = "audio"
-tracks/9/path = NodePath("VoiceOver")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"clips": [ {
-"end_offset": 0.34231,
-"start_offset": 0.0,
-"stream": ExtResource( 10 )
-} ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0, 1, 4.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 0.75, 0.75 ), Vector2( 0.3, 0.3 ) ]
 }
 
 [node name="GameIntro" type="Node2D"]
@@ -637,23 +426,19 @@ player_existing = false
 main_scene = false
 
 [node name="Label" type="Label" parent="."]
-margin_left = 156.765
-margin_top = 271.621
-margin_right = 636.765
-margin_bottom = 386.621
-rect_scale = Vector2( 0.3, 0.3 )
+margin_left = 172.194
+margin_top = 2.68175
+margin_right = 312.194
+margin_bottom = 55.6818
 custom_fonts/font = SubResource( 1 )
-text = "Use the hometrainer
-to regain energy"
+text = "Pull this
+lever to 
+move the 
+paddle down"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 247.688, 281.743 )
-current = true
-zoom = Vector2( 0.3, 0.3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Intro0 = SubResource( 2 )
@@ -661,12 +446,22 @@ anims/Intro1 = SubResource( 3 )
 anims/Intro2 = SubResource( 4 )
 anims/Intro3 = SubResource( 5 )
 anims/Intro4 = SubResource( 6 )
-anims/Intro5 = SubResource( 7 )
 
 [node name="VoiceOver" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 9 )
 volume_db = 3.0
 bus = "Tutorial Voice"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 155.251, -18.4792 )
+current = true
+zoom = Vector2( 0.3, 0.3 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
