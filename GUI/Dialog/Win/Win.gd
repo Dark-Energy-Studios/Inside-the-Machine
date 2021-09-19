@@ -19,4 +19,6 @@ func _on_NextButton_pressed():
 
 func show_dialog(next_level: int):
 	show()
+	$Firework.emitting = true
+	$Firework.one_shot = true
 	level = next_level
