@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Media/Fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GUI/Dialog/Win/Win.gd" type="Script" id=2]
+[ext_resource path="res://Media/Fonts/Magero.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.345029, 0.894737, 1 )
+colors = PoolColorArray( 1, 0.592157, 0, 1, 0.992616, 0.94152, 0, 1, 0.992455, 0.961988, 0, 1, 1, 0.921569, 0, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 32.81
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 10.0
+flatness = 1.0
+gravity = Vector3( 0, 12, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.07
+angular_velocity = 19.99
+angular_velocity_random = 0.35
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 10.0
+scale = 5.0
+scale_random = 1.0
+color_ramp = SubResource( 4 )
+hue_variation = -1.0
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 2
+outline_color = Color( 0.0509804, 0.352941, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Win" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Firework" type="Particles2D" parent="."]
+position = Vector2( 156.827, 119.828 )
+amount = 50
+lifetime = 10.0
+speed_scale = 4.86
+explosiveness = 0.27
+randomness = 0.33
+process_material = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 320.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 1 )
+text = "YOU WON"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="."]
+margin_left = 117.0
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 140.0
+custom_fonts/font = ExtResource( 1 )
+text = "NEXT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="gui_input" from="." to="." method="_on_Win_gui_input"]
+[connection signal="pressed" from="NextButton" to="." method="_on_NextButton_pressed"]
