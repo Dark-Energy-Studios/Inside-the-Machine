@@ -11,6 +11,7 @@ colors = PoolColorArray( 0.0784314, 0.133333, 0.25098, 1, 0.0352941, 0.0352941, 
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
+width = 320
 
 [sub_resource type="Animation" id=3]
 resource_name = "Neue Animation"
@@ -38,9 +39,9 @@ __meta__ = {
 }
 
 [node name="Gradient" type="Sprite" parent="."]
-position = Vector2( 160, 79.75 )
-scale = Vector2( 0.15625, 160.5 )
+scale = Vector2( 1, 166.904 )
 texture = SubResource( 2 )
+centered = false
 
 [node name="Godot" type="Sprite" parent="."]
 position = Vector2( 65.0871, 64.584 )
