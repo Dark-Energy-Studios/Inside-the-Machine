@@ -5,6 +5,7 @@
 [ext_resource path="res://Media/Fonts/default.tres" type="DynamicFont" id=3]
 
 [sub_resource type="DynamicFont" id=1]
+extra_spacing_char = 1
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -23,15 +24,16 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
-margin_top = 6.36396
+margin_top = 6.0
 margin_right = 160.0
-margin_bottom = 18.364
+margin_bottom = 31.0
 rect_scale = Vector2( 2, 2 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
-text = "game title"
+text = "THE  NIGHTSHIFT"
 align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

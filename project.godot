@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Inside the Machine"
-run/main_scene="res://GUI/Menu/Menu.tscn"
+run/main_scene="res://GUI/Splashscreen/Splashscreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
