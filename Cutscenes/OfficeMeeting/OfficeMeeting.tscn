@@ -131,7 +131,7 @@ tracks/2/keys = {
 "values": [ Vector2( -0.473, 71.119 ), Vector2( 48.878, 71.119 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "Slide4"
 length = 6.0
 step = 1.0
@@ -198,7 +198,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -15.112, 128.771 ), Vector2( -14.915, 34.427 ) ]
+"values": [ Vector2( -15.112, 124.977 ), Vector2( -14.915, 34.427 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimationPlayer/Camera2D:zoom")
@@ -239,7 +239,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 64.1231, 128.375 ), Vector2( 64.123, 33.564 ) ]
+"values": [ Vector2( 64.123, 125.373 ), Vector2( 64.123, 33.564 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimationPlayer/Camera2D:zoom")
@@ -255,6 +255,7 @@ tracks/2/keys = {
 }
 
 [node name="OfficeMeeting" type="Node2D"]
+modulate = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
 voice_lines = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
 
@@ -309,17 +310,19 @@ energy = 0.9
 
 [node name="Boss" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 23.811, 56.7496 )
+attenuation = 0.812251
+bus = "Voice"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Slide1 = SubResource( 1 )
 anims/Slide2 = SubResource( 2 )
 anims/Slide3 = SubResource( 3 )
-anims/Slide4 = SubResource( 7 )
+anims/Slide4 = SubResource( 4 )
 anims/Slide5 = SubResource( 5 )
 anims/Slide6 = SubResource( 6 )
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
-position = Vector2( 10.58, 90.1678 )
+position = Vector2( 64.123, 125.373 )
 current = true
 zoom = Vector2( 0.2, 0.2 )
 

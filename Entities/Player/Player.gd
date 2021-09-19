@@ -84,9 +84,4 @@ func get_input_axis():
 	return axis.normalized()
 
 func die():
-	$AnimationPlayer.play("die")
-
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "die":
-		emit_signal("dead")
+	emit_signal("dead")

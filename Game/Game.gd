@@ -118,8 +118,10 @@ func _on_RechargeTimer_timeout():
 	$Player.recharge_energy(1)
 
 func _on_CountdownClock_on_countdown_expired():
+	playing = false
 	emit_signal("on_player_won")
 
 func _on_Player_dead():
 	$CountdownClock.stop()
+	playing = false
 	emit_signal("on_player_lost")

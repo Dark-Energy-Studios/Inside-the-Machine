@@ -14,4 +14,7 @@ func _on_Boss_finished():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
+	if OS.has_feature('JavaScript'):
+		JavaScript.eval("window.close()")
+	
 	get_tree().quit()

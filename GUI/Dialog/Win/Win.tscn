@@ -4,14 +4,14 @@
 [ext_resource path="res://GUI/Dialog/Win/Win.gd" type="Script" id=2]
 [ext_resource path="res://Media/Fonts/Magero.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.345029, 0.894737, 1 )
 colors = PoolColorArray( 1, 0.592157, 0, 1, 0.992616, 0.94152, 0, 1, 0.992455, 0.961988, 0, 1, 1, 0.921569, 0, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 1
 emission_sphere_radius = 32.81
 flag_disable_z = true
@@ -28,10 +28,10 @@ orbit_velocity_random = 0.0
 linear_accel = 10.0
 scale = 5.0
 scale_random = 1.0
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 2 )
 hue_variation = -1.0
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 50
 outline_size = 2
 outline_color = Color( 0.0509804, 0.352941, 0, 1 )
@@ -52,12 +52,12 @@ lifetime = 10.0
 speed_scale = 4.86
 explosiveness = 0.27
 randomness = 0.33
-process_material = SubResource( 2 )
+process_material = SubResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 margin_right = 320.0
 margin_bottom = 91.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "YOU WON"
 align = 1
 valign = 1

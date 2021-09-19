@@ -12,7 +12,6 @@
 
 [node name="PongGame" type="Node2D"]
 script = ExtResource( 3 )
-player_speed = 150.0
 ball_speed = 200.0
 ball_warninglight = true
 ball_moving = true

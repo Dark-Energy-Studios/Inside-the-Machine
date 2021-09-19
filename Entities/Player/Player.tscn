@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Media/Visual/Player/Player_AnimatedSprite.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Entities/Player/Player.gd" type="Script" id=2]
@@ -7,22 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.21349, 7.40429 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "die"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "die" ]
-}
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0.707901, 0 )
@@ -45,9 +29,6 @@ playing = true
 [node name="InteractionComponent" parent="AnimatedSprite" instance=ExtResource( 4 )]
 interaction_parent = NodePath("../..")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/die = SubResource( 2 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 smoothing_enabled = true
@@ -57,5 +38,3 @@ texture = ExtResource( 3 )
 texture_scale = 0.6
 energy = 0.5
 shadow_enabled = true
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
