@@ -13,6 +13,7 @@ ball_speed = 140
 paddle_speed = 2000
 energy_recharge_rate = 0.5
 lever_energy_cost = 10
+music_time_marker = 6
 
 [node name="Win" parent="." instance=ExtResource( 3 )]
 visible = false

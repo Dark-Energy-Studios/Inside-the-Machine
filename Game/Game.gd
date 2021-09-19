@@ -24,6 +24,11 @@ export var easter_egg:bool = false
 
 export (int, 2, 300, 10) var countdown_duration = 60
 
+enum MUSIC_TIME_MARKER {START, HI_HATS, SIRENE, ARP_INTRO, BREAK_UP, DROP, BREAK_DOWN, OUTRO}
+var time_marker_values = [0.0, 30.0, 65.15, 76.874, 103.12, 106.868, 141.088, 180]
+export(MUSIC_TIME_MARKER) var music_time_marker = 0
+
+
 func _ready():
 	_configure_pong_game()
 	_configure_energy_model()
@@ -51,7 +56,7 @@ func _ready():
 	fake_game.ball_warninglight = false
 	fake_game.scale = Vector2(0.035, 0.03)
 	
-	$Game_Music.play()
+	$Game_Music.play(time_marker_values[music_time_marker])
 	var tween = get_node("AudioFadeInTween")
 	tween.interpolate_property($Game_Music, "volume_db",
 			-80, 0, 0.1,

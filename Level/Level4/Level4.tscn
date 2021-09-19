@@ -16,6 +16,7 @@ energy_model = 2
 energy_recharge_rate = 0.5
 trainer_recharge_amount = 1
 easter_egg = true
+music_time_marker = 3
 
 [node name="Win" parent="." instance=ExtResource( 3 )]
 visible = false

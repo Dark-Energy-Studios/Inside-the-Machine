@@ -16,6 +16,7 @@ energy_model = 0
 trainer_recharge_amount = 1
 lever_energy_cost = 1
 countdown_duration = 30
+music_time_marker = 1
 
 [node name="Win" parent="." instance=ExtResource( 3 )]
 

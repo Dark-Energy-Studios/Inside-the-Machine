@@ -14,6 +14,7 @@ paddle_speed = 2000
 energy_recharge_rate = 0.5
 trainer_recharge_amount = 10
 lever_energy_cost = 10
+music_time_marker = 5
 
 [node name="Win" parent="." instance=ExtResource( 3 )]
 visible = false

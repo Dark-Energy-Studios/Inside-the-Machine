@@ -16,6 +16,7 @@ energy_recharge_rate = 0.5
 trainer_recharge_amount = 1
 easter_egg = true
 countdown_duration = 20
+music_time_marker = 4
 
 [node name="Win" parent="." instance=ExtResource( 3 )]
 visible = false
