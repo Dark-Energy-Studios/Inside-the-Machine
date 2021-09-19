@@ -9,10 +9,13 @@
 script = ExtResource( 2 )
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
-ball_speed = 1000
-paddle_speed = 50
-easter_egg = true
-countdown_duration = 150
+ball_speed = 120
+paddle_speed = 2000
+block_pause_room = true
+energy_model = 0
+trainer_recharge_amount = 1
+lever_energy_cost = 1
+countdown_duration = 30
 
 [node name="Win" parent="." instance=ExtResource( 3 )]
 

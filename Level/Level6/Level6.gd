@@ -1,6 +1,6 @@
 extends Node2D
 
-const LEVEL = 1
+const LEVEL = 6
 
 func _ready():
 	$Game.connect("on_player_won", self, "_on_player_won")

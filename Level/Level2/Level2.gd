@@ -2,14 +2,12 @@ extends Node2D
 
 const LEVEL = 2
 
-func _on_Game_on_player_lost():
+func _ready():
+	$Game.connect("on_player_won", self, "_on_player_won")
+	$Game.connect("on_player_lost", self, "_on_player_lost")
+
+func _on_player_lost():
 	$GameOver.show_dialog(LEVEL)
 	
-func _on_Game_on_player_won():
+func _on_player_won():
 	$Win.show_dialog(LEVEL+1)
-
-func _on_GameOver_on_dialog_finished():
-	print("game over")
-
-func _on_Win_on_dialog_finished():
-	print("win")
