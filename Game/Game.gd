@@ -10,25 +10,27 @@ export var player_existing: bool = true
 export var main_scene: bool = true
 
 export var ball_speed: int = 100
-export var player_speed: int = 1100
+export (int, 50, 2000,50) var paddle_speed = 1100
 
 export var block_pause_room:bool = false
 
 enum ENERGY_MODEL {OFF, ON, AUTO_RECHARGE}
 export (ENERGY_MODEL) var energy_model = ENERGY_MODEL.ON
-export(float, 0.1, 10,0.1) var energy_recharge_speed = 1
+export(float, 0.3, 10,0.1) var energy_recharge_rate = 1
 export(int, 1, 10, 1) var trainer_recharge_amount = 5
 export(int, 1, 10, 1) var lever_energy_cost = 5
 
 export var easter_egg:bool = false
 
-export (int, 30, 300, 10) var countdown_duration = 60
+export (int, 2, 300, 10) var countdown_duration = 60
 
 func _ready():
 	_configure_pong_game()
 	_configure_energy_model()
 	
-	$MissionControl.block_pause_room = block_pause_room
+	if !block_pause_room:
+		$MissionControl.unblock_pause_room()
+	
 	$Trainer.recharge_amount = trainer_recharge_amount
 	$LeftLever.energy_cost = lever_energy_cost
 	$RightLever.energy_cost = lever_energy_cost
@@ -55,12 +57,14 @@ func _ready():
 			-80, 0, 0.1,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
+	
+	$CountdownClock.duration = countdown_duration
 	$CountdownClock.start()
 	
 func _configure_pong_game():
 	# passthrough exports
 	$PongGame.ball_speed = ball_speed
-	$PongGame.player_speed = player_speed
+	$PongGame.paddle_speed = paddle_speed
 	
 func _configure_energy_model():
 	match energy_model:
@@ -70,7 +74,7 @@ func _configure_energy_model():
 			$LeftLever.energy_cost = 0
 			$RightLever.energy_cost = 0
 		ENERGY_MODEL.AUTO_RECHARGE:
-			$RechargeTimer.start(energy_recharge_speed)
+			$RechargeTimer.start(energy_recharge_rate)
 	
 func _process(_delta):
 	fake_game.ball.visible = $PongGame.ball.visible
@@ -91,10 +95,7 @@ func _on_PongGame_ai_score():
 	$Player.looseLife()
 	$LifeScreen.lifes = $Player.getRemainaingLifes()
 	$LifeScreen2.lifes = $Player.getRemainaingLifes()
-	
-	if $Player.getRemainaingLifes() == 0:
-		emit_signal("on_player_lost")
-	
+		
 	$PongGame.reset_ball()
 
 func _on_PongGame_player_score():
@@ -113,3 +114,7 @@ func _on_RechargeTimer_timeout():
 
 func _on_CountdownClock_on_countdown_expired():
 	emit_signal("on_player_won")
+
+func _on_Player_dead():
+	$CountdownClock.stop()
+	emit_signal("on_player_lost")

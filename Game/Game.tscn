@@ -75,9 +75,8 @@ extents = Vector2( 10, 12.4981 )
 script = ExtResource( 5 )
 
 [node name="PongGame" parent="." instance=ExtResource( 2 )]
-position = Vector2( -26.5051, 8.39034 )
+position = Vector2( -25.0733, 22.481 )
 rotation = -1.5708
-player_speed = 1100.0
 ball_speed = 100.0
 
 [node name="MissionControl" parent="." instance=ExtResource( 1 )]
@@ -229,5 +228,6 @@ shadow_enabled = true
 [connection signal="player_score" from="PongGame" to="." method="_on_PongGame_player_score"]
 [connection signal="on_lever_pressed" from="LeftLever" to="." method="_on_LeftLever_on_lever_pressed"]
 [connection signal="on_lever_pressed" from="RightLever" to="." method="_on_RightLever_on_lever_pressed"]
+[connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 [connection signal="on_countdown_expired" from="CountdownClock" to="." method="_on_CountdownClock_on_countdown_expired"]
 [connection signal="timeout" from="RechargeTimer" to="." method="_on_RechargeTimer_timeout"]
