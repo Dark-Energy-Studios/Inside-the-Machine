@@ -4,7 +4,7 @@ class_name PongGame
 signal ai_score()
 signal player_score()
 
-export var player_speed: float = 100
+export var paddle_speed: int = 100
 export var ball_speed: float = 50
 export var classicly_playing: bool = false
 export var ball_warninglight: bool = false
@@ -16,14 +16,10 @@ onready var player_paddle: PongPaddle = get_node("PlayerPaddle")
 onready var rotated: bool = int(rotation_degrees) == -90
 
 func _ready():
-	sync_ball_settings()
-	
-	$PlayerPaddle.speed = player_speed
-	$AIPaddle.speed = player_speed
-
+	sync_settings()
 
 func _process(_delta):
-	sync_ball_settings()
+	sync_settings()
 	
 	$PlayerPaddle/LightOccluder2D.visible = paddle_shadows
 	$AIPaddle/LightOccluder2D.visible = paddle_shadows
@@ -41,10 +37,13 @@ func _physics_process(_delta):
 			move_ai_paddle_down()
 
 
-func sync_ball_settings():
+func sync_settings():
 	$PongBall.warnlight = ball_warninglight
 	$PongBall.move = ball_moving
 	$PongBall.speed = ball_speed
+	
+	$PlayerPaddle.speed = paddle_speed
+	$AIPaddle.speed = paddle_speed
 
 func move_player_paddle_up():
 	var dir = check_direction(Vector2(0, -1))
@@ -71,11 +70,13 @@ func check_direction(dir: Vector2) -> Vector2:
 	return dir
 
 func _on_AIGate_body_entered(body):
+	print("AI entered: " + str(body))
 	if body is PongBall:
 		emit_signal("player_score")
 
 
 func _on_PlayerGate_body_entered(body):
+	print("Player entered: " + str(body))
 	if body is PongBall:
 		emit_signal("ai_score")
 
