@@ -7,20 +7,20 @@
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
 paddle_speed = 2000
 block_pause_room = true
-energy_model = 2
+energy_model = 0
 trainer_recharge_amount = 10
 lever_energy_cost = 1
-easter_egg = true
-countdown_duration = 2
+countdown_duration = 30
 
 [node name="GameOver" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="Win" parent="." instance=ExtResource( 4 )]
 visible = false
-
-[connection signal="on_player_lost" from="Game" to="." method="_on_Game_on_player_lost"]
-[connection signal="on_player_won" from="Game" to="." method="_on_Game_on_player_won"]

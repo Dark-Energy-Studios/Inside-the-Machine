@@ -1,14 +1,54 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Media/Fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://GUI/Dialog/GameOver/GameOver.gd" type="Script" id=2]
 [ext_resource path="res://Media/Fonts/Magero.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Media/Visual/Room/warning_sprite.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 outline_size = 2
 outline_color = Color( 0.603922, 0, 0, 1 )
 font_data = ExtResource( 3 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 16, 48, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 32, 48, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 48, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 48, 48, 16 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+} ]
 
 [node name="GameOver" type="Control"]
 anchor_right = 1.0
@@ -31,12 +71,54 @@ __meta__ = {
 }
 
 [node name="RetryButton" type="Button" parent="."]
-margin_left = 117.603
+margin_left = 59.3326
 margin_top = 120.057
-margin_right = 200.603
-margin_bottom = 140.057
+margin_right = 141.73
+margin_bottom = 140.0
 custom_fonts/font = ExtResource( 1 )
 text = "RETRY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WarningButton" type="Button" parent="."]
+margin_left = 178.454
+margin_top = 120.057
+margin_right = 260.454
+margin_bottom = 140.057
+custom_fonts/font = ExtResource( 1 )
+text = "Skip*"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 4.76758
+margin_top = 151.351
+margin_right = 445.768
+margin_bottom = 164.351
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 1 )
+text = "*You'll receive a employee warning from your boss"
+
+[node name="Warnings" type="AnimatedSprite" parent="."]
+position = Vector2( 197.43, 94.1467 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 6 )
+animation = "2"
+
+[node name="WarningLabel" type="Label" parent="."]
+margin_left = 95.2064
+margin_top = 92.3542
+margin_right = 271.206
+margin_bottom = 103.354
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 1 )
+text = "Received Warnings:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="gui_input" from="Label" to="." method="_on_Label_gui_input"]
 [connection signal="pressed" from="RetryButton" to="." method="_on_RetryButton_pressed"]
+[connection signal="pressed" from="WarningButton" to="." method="_on_WarningButton_pressed"]
