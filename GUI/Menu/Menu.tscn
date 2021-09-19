@@ -19,7 +19,6 @@ texture = ExtResource( 3 )
 
 [node name="PongGame" parent="." instance=ExtResource( 1 )]
 scale = Vector2( 0.4, 0.4 )
-player_speed = 50.0
 ball_speed = 125.0
 use_player_ai = true
 
